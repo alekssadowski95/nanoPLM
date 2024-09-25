@@ -4,7 +4,7 @@ Open source PLM solution for small machine manufacturers - intended to be used w
 Manage your product data in a small team:
 - Material id, image, name, description
 - 3D CAD, drawings
-- patent document (IP)
+- patent documents (IP)
 - product brochures
 - machinery directive, CE marking, risk assessment, instructions manual, declaration of conformity
 - price buying, price selling
