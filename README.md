@@ -1,7 +1,14 @@
 # nanoPLM
 Open source PLM solution for small machine manufacturers - intended to be used with FreeCAD.
 
-Manage your product data in a small team.
+Manage your product data in a small team:
+- Material id, image, name, description
+- CAD, drawing
+- patent
+- sales brochure
+- machinery directive, CE marking, risk assessment, instructions manual, declaration of conformity
+- price buying, price selling
+- ...
 
 
 :point_right: nanoPLM V1: [https://drive.google.com/drive/folders/1hJgDOYAihrBrVB-M3uM-DApLE-M_Vy-x?usp=sharing](https://drive.google.com/drive/folders/1hJgDOYAihrBrVB-M3uM-DApLE-M_Vy-x?usp=sharing)
