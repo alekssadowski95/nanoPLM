@@ -17,7 +17,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 # Add secret key
-app.config['SECRET_KEY'] = '59f063a2e5406614813c5b07e129fdrb'
+app.config['SECRET_KEY'] = 'afs87fas7bfsa98fbasbas98fh78oizu'
 
 # Add routes to app
 from nanoplm import routes
