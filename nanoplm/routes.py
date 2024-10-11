@@ -13,7 +13,6 @@ def home():
     print(app.config)
     return render_template('home.html', products = products) 
 
-
 @app.route('/getting-started')
 def getting_started():
     return render_template('getting-started.html', title = "Schnellstart") 
