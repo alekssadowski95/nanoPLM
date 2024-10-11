@@ -34,19 +34,19 @@ th {
         <th>Zähnezahl</th>
     </tr>
     {% for product in products %}
-        <tr>
-            <td><a href="{{ url_for('product', product_uuid=product.uuid) }}">{{ product.name }}</a></td>
-            <td>{{ product.description }}</td>
-            <td>{{ product.type }}</td>
-            <td>{{ product.stammblattbreite }} mm</td>
-            <td>{{ product.plattensitzhoehe }} mm</td>
-            <td>{{ product.plattensitzlaenge }} mm</td>
-            <td>{{ product.plattensitzwinkel }} mm</td>
-            <td>{{ product.schnittbreite }} mm</td>
-            <td>{{ product.aussendurchmesser }} mm</td>
-            <td>{{ product.bohrungsdurchmesser }} mm</td>
-            <td>{{ product.zaehnezahl }}</td>
-        </tr>
+    <tr>
+        <td><a href="{{ url_for('product', product_uuid=product.uuid) }}">{{ product.name }}</a></td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.type }}</td>
+        <td>{{ product.stammblattbreite }} mm</td>
+        <td>{{ product.plattensitzhoehe }} mm</td>
+        <td>{{ product.plattensitzlaenge }} mm</td>
+        <td>{{ product.plattensitzwinkel }} mm</td>
+        <td>{{ product.schnittbreite }} mm</td>
+        <td>{{ product.aussendurchmesser }} mm</td>
+        <td>{{ product.bohrungsdurchmesser }} mm</td>
+        <td>{{ product.zaehnezahl }}</td>
+    </tr>
     {% endfor %}
 </table>
 {% endblock content %}
