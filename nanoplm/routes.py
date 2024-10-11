@@ -41,7 +41,6 @@ def create_product():
         return redirect(url_for('home'))
     return render_template('create-product.html', title = "Neues Produkt", form = form) 
 
-
 @app.route('/product/<product_uuid>')
 def read_product(product_uuid):
     target_product = {}
