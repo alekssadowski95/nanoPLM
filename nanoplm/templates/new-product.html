@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block style %}{% endblock style %}
+
+{% block content %}
+<h1>New Product</h1>
+<form method="POST" action="/" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>{{ form.name.label }}</td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.description.label }}</td>
+            <td>{{ form.description }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.type.label }}</td>
+            <td>{{ form.type }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.stammblattbreite.label }}</td>
+            <td>{{ form.stammblattbreite }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.plattensitzhoehe.label }}</td>
+            <td>{{ form.plattensitzhoehe }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.plattensitzlaenge.label }}</td>
+            <td>{{ form.plattensitzlaenge }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.plattensitzwinkel.label }}</td>
+            <td>{{ form.plattensitzwinkel }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.schnittbreite.label }}</td>
+            <td>{{ form.schnittbreite }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.aussendurchmesser.label }}</td>
+            <td>{{ form.aussendurchmesser }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.bohrungsdurchmesser.label }}</td>
+            <td>{{ form.bohrungsdurchmesser }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.zaehnezahl.label }}</td>
+            <td>{{ form.zaehnezahl }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding-top: 2rem;">{{ form.submit(style="min-width:100%;") }}</td>
+        </tr>
+    </table>
+</form>
+{% endblock content %}
+
+{% block scripts %}{% endblock scripts %}

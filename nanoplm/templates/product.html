@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+{% endblock style %}
+
+{% block content %}
+<h1>{{ product.name }}</h1>
+<table style="margin-bottom: 1rem;" >
+    <tr>
+        <td>UUID</td>
+        <td>{{ product.uuid }}</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>{{ product.name }}</td>
+    </tr>
+    <tr>
+        <td>Beschreibung</td>
+        <td>{{ product.description }}</td>
+    </tr>
+    <tr>
+        <td>Typ</td>
+        <td>{{ product.type }}</td>
+    </tr>
+    <tr>
+        <td>Stammblattbreite</td>
+        <td>{{ product.stammblattbreite }} mm</td>
+    </tr>
+    <tr>
+        <td>Plattensitzhöhe</td>
+        <td>{{ product.plattensitzhoehe }} mm</td>
+    </tr>
+    <tr>
+        <td>Plattensitzlänge</td>
+        <td>{{ product.plattensitzlaenge }} mm</td>
+    </tr>
+    <tr>
+        <td>Plattensitzwinkel</td>
+        <td>{{ product.plattensitzwinkel }} mm</td>
+    </tr>
+    <tr>
+        <td>Schnittbreite</td>
+        <td>{{ product.schnittbreite }} mm</td>
+    </tr>
+    <tr>
+        <td>Außendurchmesser</td>
+        <td>{{ product.aussendurchmesser }} mm</td>
+    </tr>
+    <tr>
+        <td>Bohrungsdurchmesser</td>
+        <td>{{ product.bohrungsdurchmesser }} mm</td>
+    </tr>
+    <tr>
+        <td>Zähnezahl</td>
+        <td>{{ product.zaehnezahl }}</td>
+    </tr>
+</table>   
+<a href="{{ url_for('home') }}">< Back</a> 
+{% endblock content %}
+
+{% block scripts %}{% endblock scripts %}
