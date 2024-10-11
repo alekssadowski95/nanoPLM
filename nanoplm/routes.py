@@ -2,7 +2,7 @@ import json
 
 from flask import render_template, url_for, redirect
 
-from nanoplm import app, db
+from nanoplm import app
 from .forms import NewProductForm
 #from .models import Product
 from .sample import products
@@ -28,7 +28,7 @@ def getting_started():
 def new_product():
     form = NewProductForm()
     if form.validate_on_submit():
-        product = {
+        tmp_product = {
             "uuid": "3159432b76b2b8cd",
             "name": "Sägeblatt",
             "description": "Sägeblatt für Harthölzer",
@@ -40,9 +40,9 @@ def new_product():
             "schnittbreite": 3.2,
             "aussendurchmesser": 160.50,
             "bohrungsdurchmesser": 18.0,
-            "zaehnezahl": 80,
+            "zaehnezahl": 80
         }
-        products.append(product)
+        products.append(tmp_product)
         return redirect(url_for('home'))
     return render_template('new-product.html', title = "Neues Produkt", form = form) 
 

@@ -1,12 +1,10 @@
-from nanoplm import db
-
 from flask_wtf import FlaskForm
 from wtforms.fields import StringField, TextAreaField, RadioField, SubmitField
 from wtforms.validators import DataRequired, Length
 
 class NewProductForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=1, max=200)])
-    description = TextAreaField('Beschreibung', validators=[DataRequired(), Length(min=1, max=1000)])
+    description = StringField('Beschreibung', validators=[DataRequired(), Length(min=1, max=1000)])
     type = StringField('Typ', validators=[DataRequired(), Length(min=1, max=200)])
     stammblattbreite = StringField('Stammblattbreite (mm)')
     plattensitzhoehe = StringField('Plattensitzhöhe (mm)')

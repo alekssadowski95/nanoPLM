@@ -5,6 +5,10 @@
 table, th, td {
   border: 1px solid black;
 }
+
+th, td {
+    padding-right: 0.6rem;
+}
 </style>
 {% endblock style %}
 
@@ -60,7 +64,7 @@ table, th, td {
         <td>{{ product.zaehnezahl }}</td>
     </tr>
 </table>   
-<a href="{{ url_for('home') }}">< Back</a> 
+<a href="{{ url_for('home') }}">< Zurück</a> 
 {% endblock content %}
 
 {% block scripts %}{% endblock scripts %}
