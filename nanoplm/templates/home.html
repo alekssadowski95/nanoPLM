@@ -12,7 +12,6 @@ table, th, td {
 <h1>All Products</h1>
 <table>
     <tr>
-        <th>UUID</th>
         <th>Name</th>
         <th>Beschreibung</th>
         <th>Typ</th>
@@ -27,7 +26,6 @@ table, th, td {
     </tr>
     {% for product in products %}
         <tr>
-            <td>{{ product.uuid }}</td>
             <td><a href="{{ url_for('product', product_uuid=product.uuid) }}">{{ product.name }}</a></td>
             <td>{{ product.description }}</td>
             <td>{{ product.type }}</td>
