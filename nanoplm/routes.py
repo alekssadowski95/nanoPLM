@@ -3,7 +3,7 @@ import json
 from flask import render_template, url_for, redirect
 
 from nanoplm import app
-from .forms import NewProductForm
+from .forms import CreateProductForm
 #from .models import Product
 from .sample import products
 
@@ -19,7 +19,7 @@ def getting_started():
 
 @app.route('/create-product', methods=['GET', 'POST'])
 def create_product():
-    form = NewProductForm()
+    form = CreateProductForm()
     if form.validate_on_submit():
         tmp_product = {
             "uuid": "3159432b76b2b8cd",
