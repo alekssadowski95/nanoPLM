@@ -32,6 +32,7 @@ th {
         <th>Außendurchmesser</th>
         <th>Bohrungsdurchmesser</th>
         <th>Zähnezahl</th>
+        <th>Status</th>
     </tr>
     {% for product in products %}
     <tr>
@@ -46,6 +47,7 @@ th {
         <td>{{ product.aussendurchmesser }} mm</td>
         <td>{{ product.bohrungsdurchmesser }} mm</td>
         <td>{{ product.zaehnezahl }}</td>
+        <td>{{ product.status }}</td>
     </tr>
     {% endfor %}
 </table>

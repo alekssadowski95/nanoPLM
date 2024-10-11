@@ -10,6 +10,7 @@ from .sample import products
 
 @app.route('/')
 def home():
+    print(app.config)
     return render_template('home.html', products = products) 
 
 @app.route('/product/<product_uuid>')
@@ -40,7 +41,8 @@ def new_product():
             "schnittbreite": 3.2,
             "aussendurchmesser": 160.50,
             "bohrungsdurchmesser": 18.0,
-            "zaehnezahl": 80
+            "zaehnezahl": 80,
+            "status": "Entwurf"
         }
         products.append(tmp_product)
         return redirect(url_for('home'))

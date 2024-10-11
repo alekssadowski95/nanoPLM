@@ -12,6 +12,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 80,
+        "status": "Freigegeben"
     },
     {
         "uuid": "b1740fab54843dcc",
@@ -26,6 +27,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     },
     {
         "uuid": "71e87e5cf701b274",
@@ -40,6 +42,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     },
     {
         "uuid": "234c8bcc61648ab4",
@@ -54,6 +57,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Entwurf"
     },
     {
         "uuid": "56285557f945357c",
@@ -68,6 +72,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     },
     {
         "uuid": "9bac44cbb245f7d2",
@@ -82,6 +87,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     },
     {
         "uuid": "90010007b0ebfe74",
@@ -96,6 +102,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     },
     {
         "uuid": "1813e1c698ccf8d1",
@@ -110,6 +117,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Entwurf"
     },
     {
         "uuid": "30f6c342d58f1a9f",
@@ -124,6 +132,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Entwurf"
     },
     {
         "uuid": "82bde1f70ded0030",
@@ -138,6 +147,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     },
     {
         "uuid": "d29738dfa19f628e",
@@ -152,6 +162,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     },
     {
         "uuid": "248473fa0bcb3aa5",
@@ -166,6 +177,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     },
     {
         "uuid": "a241a2f37102fc81",
@@ -180,6 +192,7 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     },
     {
         "uuid": "e1a24e2bb6364e30",
@@ -194,5 +207,6 @@ products = [
         "aussendurchmesser": 160.50,
         "bohrungsdurchmesser": 18.0,
         "zaehnezahl": 60,
+        "status": "Freigegeben"
     }
 ]
