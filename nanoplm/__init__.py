@@ -7,6 +7,10 @@ from flask_sqlalchemy import SQLAlchemy
 # setup project paths
 MODULE_PATH = os.path.abspath(__file__)
 
+# Check user progres
+FIRST_STARTUP = True
+TUTORIAL_COMPLETE = False
+
 # Create flask app instance
 application = app = Flask(__name__)
 
