@@ -22,7 +22,7 @@ def product(product_uuid):
 
 @app.route('/getting-started')
 def getting_started():
-    return render_template('getting-started.html', title = "Getting Started") 
+    return render_template('getting-started.html', title = "Schnellstart") 
 
 @app.route('/new-product', methods=['GET', 'POST'])
 def new_product():
@@ -44,7 +44,7 @@ def new_product():
         }
         products.append(product)
         return redirect(url_for('home'))
-    return render_template('new-product.html', title = "New Product", form = form) 
+    return render_template('new-product.html', title = "Neues Produkt", form = form) 
 
 @app.route('/delete-product/<product_uuid>', methods=['GET', 'POST'])
 def delete_product(product_uuid):

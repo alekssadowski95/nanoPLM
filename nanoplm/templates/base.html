@@ -19,12 +19,12 @@
 <body>
     <p style="font-size: 1.1rem; "><a style="color: black; text-decoration: none;" href="{{ url_for('home') }}">ALSADO | nanoPLM</a></p>
     <nav style="margin-bottom: 1rem;">
-        <a style="margin-right: 0.4rem;" href="{{ url_for('home') }}">Home</a>
-        <a style="margin-right: 0.4rem;" href="{{ url_for('new_product') }}">New Product</a>
-        <a style="margin-right: 0.4rem;" href="{{ url_for('getting_started') }}">Getting Started</a>
+        <a style="margin-right: 0.4rem;" href="{{ url_for('home') }}">Start</a>
+        <a style="margin-right: 0.4rem;" href="{{ url_for('new_product') }}">Neues Produkt</a>
+        <a style="margin-right: 0.4rem;" href="{{ url_for('getting_started') }}">Schnellstart</a>
     </nav>
     {% block content %}{% endblock content %}
-    <p>Copyright (C) 2024 Aleksander Sadowski. All rights reserved. Powered by <a href="https://www.alsado.de">www.alsado.de</a></p>
+    <p>Copyright (C) 2024 Aleksander Sadowski. Alle Rechte vorbehalten. Powered by <a href="https://www.alsado.de">www.alsado.de</a></p>
 
     {% block scripts %}{% endblock scripts %}
 </body>

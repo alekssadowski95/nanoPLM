@@ -16,4 +16,4 @@ class NewProductForm(FlaskForm):
     aussendurchmesser = StringField('Außendurchmesser (mm)')
     bohrungsdurchmesser = StringField('Bohrungsdurchmesser (mm)')
     zaehnezahl = StringField('Zähnezahl')
-    submit = SubmitField('Create')
+    submit = SubmitField('Erstellen')
