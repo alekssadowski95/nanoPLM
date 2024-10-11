@@ -36,7 +36,7 @@ th {
     </tr>
     {% for product in products %}
     <tr>
-        <td><a href="{{ url_for('create_product', product_uuid=product.uuid) }}">{{ product.name }}</a></td>
+        <td><a href="{{ url_for('read_product', product_uuid=product.uuid) }}">{{ product.name }}</a></td>
         <td>{{ product.description }}</td>
         <td>{{ product.type }}</td>
         <td>{{ product.stammblattbreite }} mm</td>
