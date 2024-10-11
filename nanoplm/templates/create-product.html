@@ -10,7 +10,7 @@
 
 {% block content %}
 <h1>Neues Produkt</h1>
-<form action="{{ url_for('new_product')}}" method="POST">
+<form action="{{ url_for('create_product')}}" method="POST">
     {{ form.csrf_token }}
     <table>
         <tr>

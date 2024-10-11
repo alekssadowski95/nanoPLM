@@ -13,20 +13,13 @@ def home():
     print(app.config)
     return render_template('home.html', products = products) 
 
-@app.route('/product/<product_uuid>')
-def product(product_uuid):
-    target_product = {}
-    for product in products:
-        if product['uuid'] == product_uuid:
-            target_product = product
-    return render_template('product.html', title = target_product['name'], product = target_product) 
 
 @app.route('/getting-started')
 def getting_started():
     return render_template('getting-started.html', title = "Schnellstart") 
 
-@app.route('/new-product', methods=['GET', 'POST'])
-def new_product():
+@app.route('/create-product', methods=['GET', 'POST'])
+def create_product():
     form = NewProductForm()
     if form.validate_on_submit():
         tmp_product = {
@@ -46,7 +39,24 @@ def new_product():
         }
         products.append(tmp_product)
         return redirect(url_for('home'))
-    return render_template('new-product.html', title = "Neues Produkt", form = form) 
+    return render_template('create-product.html', title = "Neues Produkt", form = form) 
+
+
+@app.route('/product/<product_uuid>')
+def read_product(product_uuid):
+    target_product = {}
+    for product in products:
+        if product['uuid'] == product_uuid:
+            target_product = product
+    return render_template('read-product.html', title = target_product['name'], product = target_product) 
+
+@app.route('/update-product/<product_uuid>', methods=['GET', 'POST'])
+def update_product(product_uuid):
+    target_product = {}
+    for product in products:
+        if product['uuid'] == product_uuid:
+            target_product = product
+    return render_template('update-product.html', title = target_product['name'], product = target_product) 
 
 @app.route('/delete-product/<product_uuid>', methods=['GET', 'POST'])
 def delete_product(product_uuid):
