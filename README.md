@@ -19,4 +19,4 @@ Manage your product data in a small team:
 
 :point_right: nanoPLM V1 Documentation: [https://drive.google.com/drive/folders/1kpGPj2jRL9byPt5izNbg5AgFY43apW_G?usp=sharing](https://drive.google.com/drive/folders/1kpGPj2jRL9byPt5izNbg5AgFY43apW_G?usp=sharing)
 
-![nanoplm-open-source-plm-freecad.png](nanoplm-open-source-plm-freecad.png)
+![nanoplm-screenshot-produktuebersicht-2.jpg](nanoplm-screenshot-produktuebersicht-2.jpg)
