@@ -67,6 +67,20 @@ th, td {
         <td>Status</td>
         <td>{{ product.status }}</td>
     </tr>
+    <tr>
+        <td>Aktionen</td>
+        <td>
+            <a href="{{ url_for('update_product', product_uuid=product.uuid) }}">bearbeiten</a>
+            <br>
+            <a href="{{ url_for('run_freecad_wizard', product_uuid=product.uuid) }}">Wizard</a>
+            <br>
+            {% if product.status != 'Freigegeben' %}
+            <a href="{{ url_for('release_product', product_uuid=product.uuid) }}">freigeben</a>
+            <br>
+            {% endif %}
+            <a href="{{ url_for('delete_product', product_uuid=product.uuid) }}">entfernen</a>
+        </td>
+    </tr>
 </table>   
 <a href="{{ url_for('home') }}">< Zurück</a> 
 {% endblock content %}

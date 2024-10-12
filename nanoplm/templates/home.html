@@ -33,6 +33,7 @@ th {
         <th>Bohrungsdurchmesser</th>
         <th>Zähnezahl</th>
         <th>Status</th>
+        <th>Aktionen</th>
     </tr>
     {% for product in products %}
     <tr>
@@ -48,6 +49,17 @@ th {
         <td>{{ product.bohrungsdurchmesser }} mm</td>
         <td>{{ product.zaehnezahl }}</td>
         <td>{{ product.status }}</td>
+        <td>
+            <a href="{{ url_for('update_product', product_uuid=product.uuid) }}">bearbeiten</a>
+            <br>
+            <a href="{{ url_for('run_freecad_wizard', product_uuid=product.uuid) }}">Wizard</a>
+            <br>
+            {% if product.status != 'Freigegeben' %}
+            <a href="{{ url_for('release_product', product_uuid=product.uuid) }}">freigeben</a>
+            <br>
+            {% endif %}
+            <a href="{{ url_for('delete_product', product_uuid=product.uuid) }}">entfernen</a>
+        </td>
     </tr>
     {% endfor %}
 </table>

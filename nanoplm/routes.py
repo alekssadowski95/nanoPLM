@@ -10,7 +10,6 @@ from .sample import products
 
 @app.route('/')
 def home():
-    print(app.config)
     return render_template('home.html', products = products) 
 
 @app.route('/getting-started')
@@ -50,12 +49,44 @@ def read_product(product_uuid):
 
 @app.route('/update-product/<product_uuid>', methods=['GET', 'POST'])
 def update_product(product_uuid):
-    target_product = {}
+    target_product = None
     for product in products:
         if product['uuid'] == product_uuid:
             target_product = product
-    return render_template('update-product.html', title = target_product['name'], product = target_product) 
+    form = CreateProductForm()
+    if form.validate_on_submit():
+        target_product['name'] = form.name.data
+        target_product['description'] = form.description.data
+        target_product['type'] = form.type.data
+        target_product['stammblattbreite'] = form.stammblattbreite.data
+        target_product['plattensitzhoehe'] = form.plattensitzhoehe.data
+        target_product['plattensitzlaenge'] = form.plattensitzlaenge.data
+        target_product['plattensitzwinkel'] = form.plattensitzwinkel.data
+        target_product['schnittbreite'] = form.schnittbreite.data
+        target_product['aussendurchmesser'] = form.aussendurchmesser.data
+        target_product['bohrungsdurchmesser'] = form.bohrungsdurchmesser.data
+        target_product['zaehnezahl'] = form.zaehnezahl.data
+        return redirect(url_for('home'))
+    return render_template('update-product.html', title = target_product['name'], form = form, product = target_product) 
 
-@app.route('/delete-product/<product_uuid>', methods=['GET', 'POST'])
+@app.route('/delete-product/<product_uuid>')
 def delete_product(product_uuid):
+    for product in products:
+        if product['uuid'] == product_uuid:
+            products.remove(product)
+    return redirect(url_for('home'))
+
+@app.route('/release-product/<product_uuid>')
+def release_product(product_uuid):
+    for product in products:
+        if product['uuid'] == product_uuid and product['status'] != 'Freigegeben':
+            product['status'] = 'Freigegeben'
+    return redirect(url_for('home'))
+
+@app.route('/add-cad/<product_uuid>')
+def add_cad(product_uuid):
+    return redirect(url_for('home'))
+
+@app.route('/run-freecad-wizard/<product_uuid>')
+def run_freecad_wizard(product_uuid):
     return redirect(url_for('home'))
