@@ -99,10 +99,10 @@ def run_freecad_wizard(product_uuid):
         if product['uuid'] == product_uuid:
             destination = copy_freecad_file(product['uuid'])
             set_product_data_in_spreadsheet(destination, product)
-            create_preview_3d(destination)
-            create_generic_3d(destination)
-            create_technical_drawing(destination)
-            create_manufacturing_file(destination)
+            create_preview_3d(destination, product)
+            create_generic_3d(destination, product)
+            create_technical_drawing(destination, product)
+            create_manufacturing_file(destination, product)
     return redirect(url_for('home'))
 
 def download_file(uuid, purpose):

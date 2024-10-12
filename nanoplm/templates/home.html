@@ -51,15 +51,23 @@ th {
         <td>{{ product.zaehnezahl }}</td>
         <td>
             {% if product.freecad_available == True %}
-            <a href="#">FCSTD herunterladen</a>
+            <a href="{{ url_for('static', filename='projects/'+product.uuid+'.FCStd') }}">FCSTD herunterladen</a>
             <br>
             {% else %}
             <span>Keine FCSTD zugewisen</span>
             <br>
             {% endif %}
 
+            {% if product.preview_available == True %}
+            <a href="{{ url_for('static', filename='projects/'+product.uuid+'.stl') }}">STL herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine STL zugewisen</span>
+            <br>
+            {% endif %}
+
             {% if product.generic_available == True %}
-            <a href="#">STEP herunterladen</a>
+            <a href="{{ url_for('static', filename='projects/'+product.uuid+'.step') }}">STEP herunterladen</a>
             <br>
             {% else %}
             <span>Keine STEP zugewisen</span>
@@ -75,7 +83,7 @@ th {
             {% endif %}
 
             {% if product.mfg_available == True %}
-            <a href="#">DXF herunterladen</a>
+            <a href="{{ url_for('static', filename='projects/'+product.uuid+'.dxf') }}">DXF herunterladen</a>
             <br>
             {% else %}
             <span>Keine DXF zugewiesen</span>

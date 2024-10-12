@@ -23,28 +23,59 @@ def set_product_data_in_spreadsheet(dir_path, product):
     product["freecad_available"] = True
     print('Updated Spreadsheet')
 
-def create_preview_3d(dir_path):
+def create_preview_3d(dir_path, product):
+    import os
+    from nanoplm import MODULE_DIR_PATH
+    destination = os.path.join(MODULE_DIR_PATH, 'static', 'projects', str(product["uuid"]) + '.stl')
     doc = FreeCAD.open(dir_path)
+
+    __objs__ = []
+    __objs__.append(doc.getObject("Body"))
+    import Mesh
+    if hasattr(Mesh, "exportOptions"):
+        options = Mesh.exportOptions(destination)
+        Mesh.export(__objs__, destination, options)
+    else:
+        Mesh.export(__objs__, destination)
+
+    del __objs__
     
     doc.save()
     FreeCAD.closeDocument(doc.Name)
+    product["preview_available"] = True
     print('Created 3D preview')
 
-def create_generic_3d(dir_path):
+def create_generic_3d(dir_path, product):
+    import os
+    from nanoplm import MODULE_DIR_PATH
+    destination = os.path.join(MODULE_DIR_PATH, 'static', 'projects', str(product["uuid"]) + '.step')
+
     doc = FreeCAD.open(dir_path)
+
+    __objs__ = []
+    __objs__.append(doc.getObject("Body"))
+    import Import
+    if hasattr(Import, "exportOptions"):
+        options = Import.exportOptions(destination)
+        Import.export(__objs__, destination, options)
+    else:
+        Import.export(__objs__, destination)
+
+    del __objs__
     
     doc.save()
     FreeCAD.closeDocument(doc.Name)
-    print('Created 3D preview')
+    product["generic_available"] = True
+    print('Created generic 3D')
 
-def create_technical_drawing(dir_path):
+def create_technical_drawing(dir_path, product):
     doc = FreeCAD.open(dir_path)
-    
+
     doc.save()
     FreeCAD.closeDocument(doc.Name)
     print('Created technical drawing')
 
-def create_manufacturing_file(dir_path):
+def create_manufacturing_file(dir_path, product):
     doc = FreeCAD.open(dir_path)
     
     doc.save()
