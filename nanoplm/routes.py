@@ -47,6 +47,7 @@ def create_product():
         new_product['preview_available'] = False
         new_product['techdraw_available'] = False
         new_product['mfg_available'] = False
+        new_product['outdated_data'] = False
         products.append(new_product)
         return redirect(url_for('home'))
     return render_template('create-product.html', title = "Produkt erstellen", form = form, product = template_product) 
@@ -78,6 +79,7 @@ def update_product(product_uuid):
         target_product['aussendurchmesser'] = form.aussendurchmesser.data
         target_product['bohrungsdurchmesser'] = form.bohrungsdurchmesser.data
         target_product['zaehnezahl'] = form.zaehnezahl.data
+        target_product['outdated_data'] = True
         return redirect(url_for('home'))
     return render_template('update-product.html', title = target_product['name'], form = form, product = target_product) 
 
@@ -110,6 +112,7 @@ def run_freecad_wizard(product_uuid):
             create_generic_3d(destination, product)
             create_technical_drawing(destination, product)
             create_manufacturing_file(destination, product)
+            product['outdated_data'] = False
     return redirect(url_for('home'))
 
 def download_file(uuid, purpose):

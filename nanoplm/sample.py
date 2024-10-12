@@ -17,7 +17,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "b1740fab54843dcc",
@@ -37,7 +38,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "71e87e5cf701b274",
@@ -57,7 +59,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "234c8bcc61648ab4",
@@ -77,7 +80,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "56285557f945357c",
@@ -97,7 +101,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "9bac44cbb245f7d2",
@@ -117,7 +122,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "90010007b0ebfe74",
@@ -137,7 +143,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "1813e1c698ccf8d1",
@@ -157,7 +164,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "30f6c342d58f1a9f",
@@ -177,7 +185,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "82bde1f70ded0030",
@@ -197,7 +206,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "d29738dfa19f628e",
@@ -217,7 +227,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "248473fa0bcb3aa5",
@@ -237,7 +248,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "a241a2f37102fc81",
@@ -257,7 +269,8 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     },
     {
         "uuid": "e1a24e2bb6364e30",
@@ -277,6 +290,7 @@ products = [
         "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
-        "mfg_available": False
+        "mfg_available": False,
+        "outdated_data": False
     }
 ]

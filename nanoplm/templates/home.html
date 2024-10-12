@@ -50,6 +50,11 @@ th {
         <td>{{ product.bohrungsdurchmesser }} mm</td>
         <td>{{ product.zaehnezahl }}</td>
         <td>
+            {% if product.outdated_data == True %}
+            <span style="color: red;">Datensatz veraltet</span>
+            <br>
+            {% endif %}
+
             {% if product.freecad_available == True %}
             <a href="{{ url_for('static', filename='projects/'+product.uuid+'.FCStd') }}">FCSTD herunterladen</a>
             <br>
