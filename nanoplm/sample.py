@@ -14,6 +14,7 @@ products = [
         "zaehnezahl": 80,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -33,6 +34,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -52,6 +54,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -71,6 +74,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Entwurf",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -90,6 +94,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -109,6 +114,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -128,6 +134,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -147,6 +154,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Entwurf",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -166,6 +174,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Entwurf",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -185,6 +194,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -204,6 +214,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -223,6 +234,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -242,6 +254,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False
@@ -261,6 +274,7 @@ products = [
         "zaehnezahl": 60,
         "status": "Freigegeben",
         "freecad_available": False,
+        "generic_available": False,
         "preview_available": False,
         "techdraw_available": False,
         "mfg_available": False

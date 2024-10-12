@@ -90,12 +90,13 @@ def add_cad(product_uuid):
 
 @app.route('/run-freecad-wizard/<product_uuid>')
 def run_freecad_wizard(product_uuid):
-    from .freecad import set_product_data_in_spreadsheet, create_3d_preview, create_technical_drawing, create_manufacturing_file
+    from .freecad import set_product_data_in_spreadsheet, create_preview_3d, create_generic_3d, create_technical_drawing, create_manufacturing_file
     for product in products:
         if product['uuid'] == product_uuid:
             destination = copy_freecad_file(product['uuid'])
             set_product_data_in_spreadsheet(destination, product)
-            create_3d_preview(destination)
+            create_preview_3d(destination)
+            create_generic_3d(destination)
             create_technical_drawing(destination)
             create_manufacturing_file(destination)
     return redirect(url_for('home'))

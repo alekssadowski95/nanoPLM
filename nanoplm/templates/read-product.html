@@ -78,6 +78,14 @@ th, td {
             <br>
             {% endif %}
 
+            {% if product.generic_available == True %}
+            <a href="#">STEP herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine STEP zugewisen</span>
+            <br>
+            {% endif %}
+
             {% if product.techdraw_available == True %}
             <a href="#">PDF herunterladen</a>
             <br>

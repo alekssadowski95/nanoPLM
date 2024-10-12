@@ -23,7 +23,14 @@ def set_product_data_in_spreadsheet(dir_path, product):
     product["freecad_available"] = True
     print('Updated Spreadsheet')
 
-def create_3d_preview(dir_path):
+def create_preview_3d(dir_path):
+    doc = FreeCAD.open(dir_path)
+    
+    doc.save()
+    FreeCAD.closeDocument(doc.Name)
+    print('Created 3D preview')
+
+def create_generic_3d(dir_path):
     doc = FreeCAD.open(dir_path)
     
     doc.save()
