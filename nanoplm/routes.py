@@ -10,7 +10,7 @@ from .sample import products
 
 @app.route('/')
 def home():
-    return render_template('home.html', products = products) 
+    return render_template('home.html', products = reversed(products)) 
 
 @app.route('/getting-started')
 def getting_started():
@@ -21,22 +21,26 @@ def create_product():
     template_product = products[-1]
     form = CreateProductForm()
     if form.validate_on_submit():
-        tmp_product = {
-            "uuid": "3159432b76b2b8cd",
-            "name": "Sägeblatt",
-            "description": "Sägeblatt für Harthölzer",
-            "type": "SBHH",
-            "stammblattbreite": 2.0,
-            "plattensitzhoehe": 3.5,
-            "plattensitzlaenge": 3.55,
-            "plattensitzwinkel": 40.25,
-            "schnittbreite": 3.2,
-            "aussendurchmesser": 160.50,
-            "bohrungsdurchmesser": 18.0,
-            "zaehnezahl": 80,
-            "status": "Entwurf"
-        }
-        products.append(tmp_product)
+        new_product = {}
+        new_product['uuid'] = generate_product_uuid()
+        new_product['name'] = form.name.data
+        new_product['description'] = form.description.data
+        new_product['type'] = form.type.data
+        new_product['stammblattbreite'] = form.stammblattbreite.data
+        new_product['plattensitzhoehe'] = form.plattensitzhoehe.data
+        new_product['plattensitzlaenge'] = form.plattensitzlaenge.data
+        new_product['plattensitzwinkel'] = form.plattensitzwinkel.data
+        new_product['schnittbreite'] = form.schnittbreite.data
+        new_product['aussendurchmesser'] = form.aussendurchmesser.data
+        new_product['bohrungsdurchmesser'] = form.bohrungsdurchmesser.data
+        new_product['zaehnezahl'] = form.zaehnezahl.data
+        new_product['status'] = 'Entwurf'
+        new_product['freecad_available'] = False
+        new_product['generic_available'] = False
+        new_product['preview_available'] = False
+        new_product['techdraw_available'] = False
+        new_product['mfg_available'] = False
+        products.append(new_product)
         return redirect(url_for('home'))
     return render_template('create-product.html', title = "Produkt erstellen", form = form, product = template_product) 
 
@@ -124,6 +128,10 @@ def copy_freecad_file(uuid):
     # Copy the file
     shutil.copy(source, destination)
     return destination
+
+def generate_product_uuid():
+    import uuid
+    return str(uuid.uuid4())
 
 
     
