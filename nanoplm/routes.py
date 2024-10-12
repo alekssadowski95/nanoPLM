@@ -104,6 +104,8 @@ def run_freecad_wizard(product_uuid):
 def download_file(uuid, purpose):
     if purpose == 'preview':
         pass
+    elif purpose == 'generic':
+        pass
     elif purpose == 'techdraw':
         pass
     elif purpose == 'mfg':
@@ -111,13 +113,12 @@ def download_file(uuid, purpose):
     else:
         print('Tried downloading file with unknown purpose.')
     
-
 def copy_freecad_file(uuid):
     import shutil
     from nanoplm import MODULE_DIR_PATH
     import os
     # Source file path
-    source = os.path.join(MODULE_DIR_PATH, 'static', 'saegeblatt.FCStd')
+    source = os.path.join(MODULE_DIR_PATH, 'static', 'SBHH.FCStd')
     # Destination file path
     destination = os.path.join(MODULE_DIR_PATH, 'static', 'projects', str(uuid) + '.FCStd')
     # Copy the file
