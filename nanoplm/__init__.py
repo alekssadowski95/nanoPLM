@@ -37,9 +37,7 @@ try:
 except:
     print('_PartDesign (Linux PPA) could not be imported (ignore if on Windows)')
 
-# Check user progres
-FIRST_STARTUP = True
-TUTORIAL_COMPLETE = False
+
 
 # Create flask app instance
 application = app = Flask(__name__)
@@ -52,6 +50,10 @@ db.init_app(app)
 
 # Add secret key
 app.config['SECRET_KEY'] = 'afs87fas7bfsa98fbasbas98fh78oizu'
+
+# Check user progres
+app.config['FIRST_STARTUP'] = True
+TUTORIAL_COMPLETE = False
 
 # Add routes to app
 from nanoplm import routes

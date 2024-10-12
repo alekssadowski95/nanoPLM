@@ -10,7 +10,14 @@ from .sample import products
 
 @app.route('/')
 def home():
+    if app.config['FIRST_STARTUP'] == True:
+        return redirect(url_for('welcome'))
     return render_template('home.html', products = reversed(products)) 
+
+@app.route('/welcome')
+def welcome():
+    app.config['FIRST_STARTUP'] = False
+    return render_template('welcome.html') 
 
 @app.route('/getting-started')
 def getting_started():

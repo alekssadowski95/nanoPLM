@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+    td {
+        padding-right: 0.6rem;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+<h1>Glückwunsch!</h1>
+<p>Du hast nanoPLM erfolgreich installiert.</p>
+<a href="{{ url_for('home') }}">Jetzt starten</a>
+
+{% endblock content %}
+
+{% block scripts %}{% endblock scripts %}
