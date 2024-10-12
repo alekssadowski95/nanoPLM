@@ -18,6 +18,7 @@ def getting_started():
 
 @app.route('/create-product', methods=['GET', 'POST'])
 def create_product():
+    template_product = products[-1]
     form = CreateProductForm()
     if form.validate_on_submit():
         tmp_product = {
@@ -37,7 +38,7 @@ def create_product():
         }
         products.append(tmp_product)
         return redirect(url_for('home'))
-    return render_template('create-product.html', title = "Produkt erstellen", form = form) 
+    return render_template('create-product.html', title = "Produkt erstellen", form = form, product = template_product) 
 
 @app.route('/product/<product_uuid>')
 def read_product(product_uuid):
