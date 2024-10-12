@@ -90,4 +90,38 @@ def add_cad(product_uuid):
 
 @app.route('/run-freecad-wizard/<product_uuid>')
 def run_freecad_wizard(product_uuid):
+    from .freecad import set_product_data_in_spreadsheet, create_3d_preview, create_technical_drawing, create_manufacturing_file
+    for product in products:
+        if product['uuid'] == product_uuid:
+            destination = copy_freecad_file(product['uuid'])
+            set_product_data_in_spreadsheet(destination, product)
+            create_3d_preview(destination)
+            create_technical_drawing(destination)
+            create_manufacturing_file(destination)
     return redirect(url_for('home'))
+
+def download_file(uuid, purpose):
+    if purpose == 'preview':
+        pass
+    elif purpose == 'techdraw':
+        pass
+    elif purpose == 'mfg':
+        pass
+    else:
+        print('Tried downloading file with unknown purpose.')
+    
+
+def copy_freecad_file(uuid):
+    import shutil
+    from nanoplm import MODULE_DIR_PATH
+    import os
+    # Source file path
+    source = os.path.join(MODULE_DIR_PATH, 'static', 'saegeblatt.FCStd')
+    # Destination file path
+    destination = os.path.join(MODULE_DIR_PATH, 'static', 'projects', str(uuid) + '.FCStd')
+    # Copy the file
+    shutil.copy(source, destination)
+    return destination
+
+
+    

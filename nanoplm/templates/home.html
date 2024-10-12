@@ -32,7 +32,7 @@ th {
         <th>Außen-<br>durchmesser</th>
         <th>Bohrungs-<br>durchmesser</th>
         <th>Zähnezahl</th>
-        <th>Wizard<br>gestartet</th>
+        <th>Dateien</th>
         <th>Status</th>
         <th>Aktionen</th>
     </tr>
@@ -49,7 +49,31 @@ th {
         <td>{{ product.aussendurchmesser }} mm</td>
         <td>{{ product.bohrungsdurchmesser }} mm</td>
         <td>{{ product.zaehnezahl }}</td>
-        <td>Nein</td>
+        <td>
+            {% if product.freecad_available == True %}
+            <a href="#">FCSTD herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine FCSTD zugewisen</span>
+            <br>
+            {% endif %}
+
+            {% if product.techdraw_available == True %}
+            <a href="#">PDF herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine PDF zugewiesen</span>
+            <br>
+            {% endif %}
+
+            {% if product.mfg_available == True %}
+            <a href="#">DXF herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine DXF zugewiesen</span>
+            <br>
+            {% endif %}
+        </td>
         <td>{{ product.status }}</td>
         <td>
             <a href="{{ url_for('update_product', product_uuid=product.uuid) }}">bearbeiten</a>

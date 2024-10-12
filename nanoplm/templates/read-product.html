@@ -68,6 +68,34 @@ th, td {
         <td>{{ product.status }}</td>
     </tr>
     <tr>
+        <td>Dateien</td>
+        <td>
+            {% if product.freecad_available == True %}
+            <a href="#">FCSTD herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine FCSTD zugewisen</span>
+            <br>
+            {% endif %}
+
+            {% if product.techdraw_available == True %}
+            <a href="#">PDF herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine PDF zugewiesen</span>
+            <br>
+            {% endif %}
+
+            {% if product.mfg_available == True %}
+            <a href="#">DXF herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine DXF zugewiesen</span>
+            <br>
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
         <td>Aktionen</td>
         <td>
             <a href="{{ url_for('update_product', product_uuid=product.uuid) }}">bearbeiten</a>
