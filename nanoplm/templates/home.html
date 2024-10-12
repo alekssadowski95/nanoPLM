@@ -24,14 +24,15 @@ th {
         <th>Name</th>
         <th>Beschreibung</th>
         <th>Typ</th>
-        <th>Stammblattbreite</th>
-        <th>Plattensitzhöhe</th>
-        <th>Plattensitzlänge</th>
-        <th>Plattensitzwinkel</th>
-        <th>Schnittbreite</th>
-        <th>Außendurchmesser</th>
-        <th>Bohrungsdurchmesser</th>
+        <th>Stammblatt-<br>breite</th>
+        <th>Plattensitz-<br>höhe</th>
+        <th>Plattensitz-<br>länge</th>
+        <th>Plattensitz-<br>winkel</th>
+        <th>Schnitt-<br>breite</th>
+        <th>Außen-<br>durchmesser</th>
+        <th>Bohrungs-<br>durchmesser</th>
         <th>Zähnezahl</th>
+        <th>Wizard<br>gestartet</th>
         <th>Status</th>
         <th>Aktionen</th>
     </tr>
@@ -48,11 +49,12 @@ th {
         <td>{{ product.aussendurchmesser }} mm</td>
         <td>{{ product.bohrungsdurchmesser }} mm</td>
         <td>{{ product.zaehnezahl }}</td>
+        <td>Nein</td>
         <td>{{ product.status }}</td>
         <td>
             <a href="{{ url_for('update_product', product_uuid=product.uuid) }}">bearbeiten</a>
             <br>
-            <a href="{{ url_for('run_freecad_wizard', product_uuid=product.uuid) }}">Wizard</a>
+            <a href="{{ url_for('run_freecad_wizard', product_uuid=product.uuid) }}">Wizard starten</a>
             <br>
             {% if product.status != 'Freigegeben' %}
             <a href="{{ url_for('release_product', product_uuid=product.uuid) }}">freigeben</a>
