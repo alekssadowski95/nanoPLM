@@ -4,7 +4,7 @@ Open source PLM solution for small machine manufacturers - intended to be used w
 - Focusing is on ease of use - even beginners can install and use it.
 - Automate your FreeCAD workflows from a central place.
 
-:point_right: Download executable (Windows 10, FreeCAD 0.21): 
+:point_right: Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
 ![https://drive.google.com/drive/folders/1kVBG3cHhATUx6Zti8eNzeu15jMvkgCdj?usp=sharing](https://drive.google.com/drive/folders/1kVBG3cHhATUx6Zti8eNzeu15jMvkgCdj?usp=sharing) 
 
 
