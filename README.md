@@ -5,7 +5,7 @@ It can be run locally without the need for an internet connection allowing you t
 
 The focus is on ease of use, so that even beginners are able to install and use it.
 
-Download executable: 
+:point_right: Download executable: 
 ![https://drive.google.com/drive/folders/1kVBG3cHhATUx6Zti8eNzeu15jMvkgCdj?usp=sharing](https://drive.google.com/drive/folders/1kVBG3cHhATUx6Zti8eNzeu15jMvkgCdj?usp=sharing) 
 
 
