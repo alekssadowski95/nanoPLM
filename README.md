@@ -1,11 +1,19 @@
 # nanoPLM
 Open source PLM solution for small machine manufacturers - intended to be used with FreeCAD.
+- Run locally without an internet connection and keep all your data.
+- Focusing is on ease of use - even beginners can install and use it.
+- Automate your FreeCAD workflows from a central place.
 
-It can be run locally without the need for an internet connection allowing you to keep all your data on your own server.
+:point_right: Download executable: 
+![https://drive.google.com/drive/folders/1kVBG3cHhATUx6Zti8eNzeu15jMvkgCdj?usp=sharing](https://drive.google.com/drive/folders/1kVBG3cHhATUx6Zti8eNzeu15jMvkgCdj?usp=sharing) 
 
-The focus is on ease of use, so that even beginners are able to install and use it.
 
-Manage your product data in a small team:
+
+![nanoplm-screenshot-produktuebersicht-2.jpg](nanoplm-screenshot-produktuebersicht-2.jpg)
+
+
+
+## Manage your product data in a small team
 - Material id, image, name, description
 - 3D CAD, drawings
 - Patent documents (IP)
@@ -13,6 +21,3 @@ Manage your product data in a small team:
 - Machinery directive, CE marking, risk assessment, instructions manual, declaration of conformity
 - Price buying, price selling
 - ...
-
-
-![nanoplm-screenshot-produktuebersicht-2.jpg](nanoplm-screenshot-produktuebersicht-2.jpg)
