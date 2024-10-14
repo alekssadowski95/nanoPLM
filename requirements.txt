@@ -5,3 +5,4 @@ flask_wtf
 wtforms
 SQLAlchemy
 pyinstaller
+waitress
