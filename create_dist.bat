@@ -1,0 +1,1 @@
+python -m PyInstaller run.py --add-data nanoplm:nanoplm

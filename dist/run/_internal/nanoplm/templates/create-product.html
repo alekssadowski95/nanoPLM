@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+    td {
+        padding-right: 0.6rem;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+<h1>Neues Produkt</h1>
+<p>Alle Felder wurden mit dem zuletzt erstellten Produkt vorausgefüllt.</p>
+<form action="{{ url_for('create_product')}}" method="POST">
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>{{ form.name.label }}</td>
+            <td>{{ form.name(value=product.name) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.description.label }}</td>
+            <td>{{ form.description(value=product.description) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.type.label }}</td>
+            <td>{{ form.type(value=product.type) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.stammblattbreite.label }}</td>
+            <td>{{ form.stammblattbreite(value=product.stammblattbreite) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.plattensitzhoehe.label }}</td>
+            <td>{{ form.plattensitzhoehe(value=product.plattensitzhoehe) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.plattensitzlaenge.label }}</td>
+            <td>{{ form.plattensitzlaenge(value=product.plattensitzlaenge) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.plattensitzwinkel.label }}</td>
+            <td>{{ form.plattensitzwinkel(value=product.plattensitzwinkel) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.schnittbreite.label }}</td>
+            <td>{{ form.schnittbreite(value=product.schnittbreite) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.aussendurchmesser.label }}</td>
+            <td>{{ form.aussendurchmesser(value=product.aussendurchmesser) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.bohrungsdurchmesser.label }}</td>
+            <td>{{ form.bohrungsdurchmesser(value=product.bohrungsdurchmesser) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.zaehnezahl.label }}</td>
+            <td>{{ form.zaehnezahl(value=product.zaehnezahl) }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding-top: 2rem;">{{ form.submit(style="min-width:100%;") }}</td>
+        </tr>
+    </table>
+</form>
+{% endblock content %}
+
+{% block scripts %}{% endblock scripts %}
