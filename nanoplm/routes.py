@@ -115,6 +115,14 @@ def run_freecad_wizard(product_uuid):
             product['outdated_data'] = False
     return redirect(url_for('home'))
 
+@app.route('/action-editor/<product_uuid>')
+def action_editor(product_uuid):
+    target_product = {}
+    for product in products:
+        if product['uuid'] == product_uuid:
+            target_product = product
+    return render_template('action-editor.html', title = target_product["name"] + "- Action Builder", product = target_product)
+
 def download_file(uuid, purpose):
     if purpose == 'preview':
         pass
