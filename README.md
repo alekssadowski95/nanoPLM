@@ -27,7 +27,7 @@ Open source PLM solution for small machine manufacturers - intended to be used w
 4. Preliminary design (analytical calculations)
 5. Detailed design (3D CAD, manufacturing and assembly drawings, simulation)
 6. Testing (if necessary (safety, functional))
-7. Manufacturing (in-house/ outsourced)
+7. Manufacturing (in-house/ outsourced, development and manufacturing of manufacturing aids)
 8. Quality assurance (100% control/ sample)
 
 
