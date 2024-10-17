@@ -12,7 +12,7 @@ from .sample import products
 def home():
     if app.config['NANOPLM_FIRST_STARTUP'] == True:
         return redirect(url_for('welcome'))
-    return render_template('home.html', products = reversed(products), NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD'], SELECTED_FREECAD_VERSION = app.config['SELECTED_FREECAD_VERSION']) 
+    return render_template('home.html', convert_to_five_digit_string = convert_to_five_digit_string, products = reversed(products), NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD'], SELECTED_FREECAD_VERSION = app.config['SELECTED_FREECAD_VERSION']) 
 
 @app.route('/welcome')
 def welcome():
@@ -58,7 +58,7 @@ def read_product(product_uuid):
     for product in products:
         if product['uuid'] == product_uuid:
             target_product = product
-    return render_template('read-product.html', title = target_product['name'], product = target_product, NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD']) 
+    return render_template('read-product.html', convert_to_five_digit_string = convert_to_five_digit_string, title = target_product['name'], product = target_product, NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD']) 
 
 @app.route('/update-product/<product_uuid>', methods=['GET', 'POST'])
 def update_product(product_uuid):
@@ -149,5 +149,7 @@ def generate_product_uuid():
     import uuid
     return str(uuid.uuid4())
 
+def convert_to_five_digit_string(number):
+    return f"{number:05d}"
 
     

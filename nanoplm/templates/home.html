@@ -29,6 +29,7 @@ th {
         <th>Name</th>
         <th>Beschreibung</th>
         <th>Typ</th>
+        <th>Nummer</th>
         <th>Stammblatt-<br>breite</th>
         <th>Plattensitz-<br>höhe</th>
         <th>Plattensitz-<br>länge</th>
@@ -46,6 +47,7 @@ th {
         <td><a href="{{ url_for('read_product', product_uuid=product.uuid) }}">{{ product.name }}</a></td>
         <td>{{ product.description }}</td>
         <td>{{ product.type }}</td>
+        <td>{{ convert_to_five_digit_string(product.number) }}</td>
         <td>{{ product.stammblattbreite }} mm</td>
         <td>{{ product.plattensitzhoehe }} mm</td>
         <td>{{ product.plattensitzlaenge }} mm</td>
@@ -64,7 +66,7 @@ th {
             <a href="{{ url_for('static', filename='projects/'+product.uuid+'.FCStd') }}">FCSTD herunterladen</a>
             <br>
             {% else %}
-            <span>Keine FCSTD zugewisen</span>
+            <span>Keine FCSTD</span>
             <br>
             {% endif %}
 
@@ -72,7 +74,7 @@ th {
             <a href="{{ url_for('static', filename='projects/'+product.uuid+'.stl') }}">STL herunterladen</a>
             <br>
             {% else %}
-            <span>Keine STL zugewisen</span>
+            <span>Keine STL</span>
             <br>
             {% endif %}
 
@@ -80,7 +82,7 @@ th {
             <a href="{{ url_for('static', filename='projects/'+product.uuid+'.step') }}">STEP herunterladen</a>
             <br>
             {% else %}
-            <span>Keine STEP zugewisen</span>
+            <span>Keine STEP</span>
             <br>
             {% endif %}
 
@@ -88,7 +90,7 @@ th {
             <a href="#">PDF herunterladen</a>
             <br>
             {% else %}
-            <span>Keine PDF zugewiesen</span>
+            <span>Keine PDF</span>
             <br>
             {% endif %}
 
@@ -96,7 +98,7 @@ th {
             <a href="{{ url_for('static', filename='projects/'+product.uuid+'.dxf') }}">DXF herunterladen</a>
             <br>
             {% else %}
-            <span>Keine DXF zugewiesen</span>
+            <span>Keine DXF</span>
             <br>
             {% endif %}
         </td>

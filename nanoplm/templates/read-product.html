@@ -32,6 +32,10 @@ th, td {
         <td>{{ product.type }}</td>
     </tr>
     <tr>
+        <td>Nummer</td>
+        <td>{{ convert_to_five_digit_string(product.number) }}</td>
+    </tr>
+    <tr>
         <td>Stammblattbreite</td>
         <td>{{ product.stammblattbreite }} mm</td>
     </tr>
@@ -80,7 +84,7 @@ th, td {
             <a href="{{ url_for('static', filename='projects/'+product.uuid+'.FCStd') }}">FCSTD herunterladen</a>
             <br>
             {% else %}
-            <span>Keine FCSTD zugewisen</span>
+            <span>Keine FCSTD</span>
             <br>
             {% endif %}
 
@@ -88,7 +92,7 @@ th, td {
             <a href="{{ url_for('static', filename='projects/'+product.uuid+'.stl') }}">STL herunterladen</a>
             <br>
             {% else %}
-            <span>Keine STL zugewisen</span>
+            <span>Keine STL</span>
             <br>
             {% endif %}
 
@@ -96,7 +100,7 @@ th, td {
             <a href="{{ url_for('static', filename='projects/'+product.uuid+'.step') }}">STEP herunterladen</a>
             <br>
             {% else %}
-            <span>Keine STEP zugewisen</span>
+            <span>Keine STEP</span>
             <br>
             {% endif %}
 
@@ -104,7 +108,7 @@ th, td {
             <a href="#">PDF herunterladen</a>
             <br>
             {% else %}
-            <span>Keine PDF zugewiesen</span>
+            <span>Keine PDF</span>
             <br>
             {% endif %}
 
@@ -112,7 +116,7 @@ th, td {
             <a href="#">DXF herunterladen</a>
             <br>
             {% else %}
-            <span>Keine DXF zugewiesen</span>
+            <span>Keine DXF</span>
             <br>
             {% endif %}
         </td>
