@@ -12,7 +12,7 @@ Open source PLM solution for small machine manufacturers - intended to be used w
 :point_right: Watch nanoPLM Video Overview: 
 [https://youtu.be/8V5PVpD8dvw](https://youtu.be/8V5PVpD8dvw)
 
-:point_right: Test it on your own:
+:point_right: Test nanoPLM now:
 [https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
 
 
