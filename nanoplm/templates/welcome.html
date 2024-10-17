@@ -22,6 +22,17 @@
 <span>[INFO]: "Wizard starten" ist nicht verfügbar. Um den Wizard zu starten muss FreeCAD installiert sein. Lade FreeCAD herunter und installiere es: <a href="https://www.freecad.org/downloads.php">https://www.freecad.org/downloads.php</a></span>
 <br>
 <br>
+{% else %}
+<span>[INFO]: FreeCAD Installation erkannt. Du hast jetzt Zugriff auf "Wizard starten".</span>
+<br>
+    {% if NANOPLM_MODULE_FREECADGUI == False %}
+    <span>[INFO]: FreeCAD GUI API nicht verfügbar. Ihr Server unterstützt keine GUI.</span>
+    <br>
+    {% else %}
+    <span>[INFO]: FreeCAD GUI API verfügbar.</span>
+    <br>
+    {% endif %}
+<br>
 {% endif %}
 
 <a href="{{ url_for('home') }}">Jetzt starten</a>

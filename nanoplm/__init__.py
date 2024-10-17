@@ -32,7 +32,7 @@ app.config['NANOPLM_MODULE_PREPOMAX'] = False
 # FreeCAD imports
 # Add path to FreeCAD Python interface
 # path to your FreeCAD.so or FreeCAD.dll file
-FREECAD_ABS_PATH = 'C:/PROGRA~1/FreeCAD 0.22/bin'
+FREECAD_ABS_PATH = 'C:/PROGRA~1/FreeCAD 0.21/bin'
 sys.path.append(FREECAD_ABS_PATH)
 
 # import the FreeCAD Python interface
@@ -41,6 +41,7 @@ try:
     app.config['NANOPLM_MODULE_FREECADCMD'] = True
     print('The FreeCAD Python interface has been loaded')
 except:
+    app.config['NANOPLM_MODULE_FREECADGUI'] = False
     print('FreeCAD API not found. Please check the FREECAD_ABS_PATH variable.')
 
 try:
@@ -67,6 +68,14 @@ try:
     import _PartDesign as PartDesign
 except:
     print('FreeCAD _PartDesign workbench (Linux PPA) not found. (ignore if on Windows)')
+
+try:
+    import FreeCADGui
+    app.config['NANOPLM_MODULE_FREECADGUI'] = True
+    print('The FreeCAD GUI Python interface has been loaded')
+except:
+    app.config['NANOPLM_MODULE_FREECADGUI'] = False
+    print('FreeCAD GUI API not found. Your server may not support the GUI API. Also, check the FREECAD_ABS_PATH variable.')
 
 # Add routes to app
 from nanoplm import routes
