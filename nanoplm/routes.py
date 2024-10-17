@@ -12,12 +12,12 @@ from .sample import products
 def home():
     if app.config['NANOPLM_FIRST_STARTUP'] == True:
         return redirect(url_for('welcome'))
-    return render_template('home.html', products = reversed(products), NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD']) 
+    return render_template('home.html', products = reversed(products), NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD'], SELECTED_FREECAD_VERSION = app.config['SELECTED_FREECAD_VERSION']) 
 
 @app.route('/welcome')
 def welcome():
     app.config['NANOPLM_FIRST_STARTUP'] = False
-    return render_template('welcome.html', NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD']) 
+    return render_template('welcome.html', NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD'], SELECTED_FREECAD_VERSION = app.config['SELECTED_FREECAD_VERSION']) 
 
 @app.route('/getting-started')
 def getting_started():
