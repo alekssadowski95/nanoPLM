@@ -12,12 +12,12 @@ from .sample import products
 def home():
     if app.config['NANOPLM_FIRST_STARTUP'] == True:
         return redirect(url_for('welcome'))
-    return render_template('home.html', products = reversed(products)) 
+    return render_template('home.html', products = reversed(products), NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD']) 
 
 @app.route('/welcome')
 def welcome():
     app.config['NANOPLM_FIRST_STARTUP'] = False
-    return render_template('welcome.html') 
+    return render_template('welcome.html', NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD']) 
 
 @app.route('/getting-started')
 def getting_started():
@@ -58,7 +58,7 @@ def read_product(product_uuid):
     for product in products:
         if product['uuid'] == product_uuid:
             target_product = product
-    return render_template('read-product.html', title = target_product['name'], product = target_product) 
+    return render_template('read-product.html', title = target_product['name'], product = target_product, NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD']) 
 
 @app.route('/update-product/<product_uuid>', methods=['GET', 'POST'])
 def update_product(product_uuid):
@@ -97,22 +97,20 @@ def release_product(product_uuid):
             product['status'] = 'Freigegeben'
     return redirect(url_for('home'))
 
-@app.route('/add-cad/<product_uuid>')
-def add_cad(product_uuid):
-    return redirect(url_for('home'))
-
 @app.route('/run-freecad-wizard/<product_uuid>')
 def run_freecad_wizard(product_uuid):
-    from .freecad import set_product_data_in_spreadsheet, create_preview_3d, create_generic_3d, create_technical_drawing, create_manufacturing_file
-    for product in products:
-        if product['uuid'] == product_uuid:
-            destination = copy_freecad_file(product['uuid'])
-            set_product_data_in_spreadsheet(destination, product)
-            create_preview_3d(destination, product)
-            create_generic_3d(destination, product)
-            create_technical_drawing(destination, product)
-            create_manufacturing_file(destination, product)
-            product['outdated_data'] = False
+    if app.config['NANOPLM_MODULE_FREECADCMD'] == True:
+        from .freecad import set_product_data_in_spreadsheet, create_preview_3d, create_generic_3d, create_technical_drawing, create_manufacturing_file
+        for product in products:
+            if product['uuid'] == product_uuid:
+                destination = copy_freecad_file(product['uuid'])
+                set_product_data_in_spreadsheet(destination, product)
+                create_preview_3d(destination, product)
+                create_generic_3d(destination, product)
+                if app.config['NANOPLM_MODULE_FREECADGUI'] == True:
+                    create_technical_drawing(destination, product)
+                    create_manufacturing_file(destination, product)
+                product['outdated_data'] = False
     return redirect(url_for('home'))
 
 @app.route('/action-editor/<product_uuid>')

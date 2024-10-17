@@ -11,11 +11,19 @@
 {% block content %}
 <h1>Glückwunsch!</h1>
 <p>Du hast nanoPLM erfolgreich installiert.</p>
+
 <ol>
-    <li>Erstelle dein erstes Produkt</li>
-    <li>Generiere automatisch die FreeCAD (FCStd), STEP, DXG und PDF Dateien</li>
-    <li>Gebe das Produkt für die Herstellung frei</li>
+    <li>Erstelle dein erstes Produkt mit "Produkt erstellen"</li>
+    <li>Generiere automatisch die FreeCAD (FCStd), STEP, DXG und PDF Dateien mit "Wizard starten"</li>
+    <li>Gebe das Produkt für die Herstellung frei mit "Freigeben"</li>
 </ol>
+
+{% if NANOPLM_MODULE_FREECADCMD == False %}
+<span>[INFO]: "Wizard starten" ist nicht verfügbar. Um den Wizard zu starten muss FreeCAD installiert sein. Lade FreeCAD herunter und installiere es: <a href="https://www.freecad.org/downloads.php">https://www.freecad.org/downloads.php</a></span>
+<br>
+<br>
+{% endif %}
+
 <a href="{{ url_for('home') }}">Jetzt starten</a>
 
 {% endblock content %}

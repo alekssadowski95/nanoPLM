@@ -120,8 +120,13 @@ th, td {
     <tr>
         <td>Aktionen</td>
         <td>
+            {% if NANOPLM_MODULE_FREECADCMD == True %}
             <a href="{{ url_for('run_freecad_wizard', product_uuid=product.uuid) }}">Wizard starten</a>
             <br>
+            {% else %}
+            <span style="color:grey; font-style: italic;">Wizard starten</span>
+            <br>
+            {% endif %}
             <a href="{{ url_for('update_product', product_uuid=product.uuid) }}">bearbeiten</a>
             <br>
             <a href="{{ url_for('delete_product', product_uuid=product.uuid) }}">entfernen</a>

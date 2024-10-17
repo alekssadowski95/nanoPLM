@@ -19,6 +19,11 @@ th {
 
 {% block content %}
 <h1>Alle Produkte</h1>
+{% if NANOPLM_MODULE_FREECADCMD == False %}
+<span>[INFO]: "Wizard starten" ist nicht verfügbar. Um den Wizard zu starten muss FreeCAD installiert sein. Lade FreeCAD herunter und installiere es: <a href="https://www.freecad.org/downloads.php">https://www.freecad.org/downloads.php</a></span>
+<br>
+<br>
+{% endif %}
 <table>
     <tr>
         <th>Name</th>
@@ -103,8 +108,13 @@ th {
             {% endif %}
         </td>
         <td>
+            {% if NANOPLM_MODULE_FREECADCMD == True %}
             <a href="{{ url_for('run_freecad_wizard', product_uuid=product.uuid) }}">Wizard starten</a>
             <br>
+            {% else %}
+            <span style="color:grey; font-style: italic;">Wizard starten</span>
+            <br>
+            {% endif %}
             <a href="{{ url_for('update_product', product_uuid=product.uuid) }}">bearbeiten</a>
             <br>
             <a href="{{ url_for('delete_product', product_uuid=product.uuid) }}">entfernen</a>
