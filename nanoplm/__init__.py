@@ -21,13 +21,13 @@ db.init_app(app)
 app.config['SECRET_KEY'] = 'afs87fas7bfsa98fbasbas98fh78oizu'
 
 # Check user progres
-app.config['FIRST_STARTUP'] = True
-TUTORIAL_COMPLETE = False
+app.config['NANOPLM_FIRST_STARTUP'] = True
+app.config['NANOPLM_TUTORIAL_COMPLETE'] = False
 
 # nanoPLM modules
-app.config['FREECADCMD'] = False
-app.config['FREECADGUI'] = False
-app.config['PREPOMAX'] = False
+app.config['NANOPLM_MODULE_FREECADCMD'] = False
+app.config['NANOPLM_MODULE_FREECADGUI'] = False
+app.config['NANOPLM_MODULE_PREPOMAX'] = False
 
 # FreeCAD imports
 # Add path to FreeCAD Python interface
@@ -38,7 +38,7 @@ sys.path.append(FREECAD_ABS_PATH)
 # import the FreeCAD Python interface
 try:
     import FreeCAD
-    app.config['FREECADCMD'] = True
+    app.config['NANOPLM_MODULE_FREECADCMD'] = True
     print('The FreeCAD Python interface has been loaded')
 except ValueError:
     print('FreeCAD library not found. Please check the FREECADPATH variable in the import script is correct')
