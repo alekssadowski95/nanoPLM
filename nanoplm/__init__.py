@@ -30,9 +30,20 @@ app.config['NANOPLM_MODULE_FREECADGUI'] = False
 app.config['NANOPLM_MODULE_PREPOMAX'] = False
 
 # FreeCAD imports
+app.config['SUPPORTED_FREECAD_VERSIONS'] = ['FreeCAD 0.21', 'FreeCAD 0.20'] # in order of preference, 1st is preferred
+app.config['SELECTED_FREECAD_VERSION'] = None
+
+for version in reversed(app.config['SUPPORTED_FREECAD_VERSIONS']):
+    version_path = 'C:/PROGRA~1/' + version
+    if os.path.isdir(version_path) == True:
+        print(version_path + '=' + str(os.path.isdir(version_path)))
+        app.config['SELECTED_FREECAD_VERSION'] = version
+    else:
+        print(version_path + '=' + str(os.path.isdir(version_path)))
+
 # Add path to FreeCAD Python interface
 # path to your FreeCAD.so or FreeCAD.dll file
-FREECAD_ABS_PATH = 'C:/PROGRA~1/FreeCAD 0.21/bin'
+FREECAD_ABS_PATH = 'C:/PROGRA~1/' + app.config['SELECTED_FREECAD_VERSION'] + '/bin'
 sys.path.append(FREECAD_ABS_PATH)
 
 # import the FreeCAD Python interface
