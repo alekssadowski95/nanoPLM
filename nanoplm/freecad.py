@@ -69,10 +69,32 @@ def create_generic_3d(dir_path, product):
     print('Created generic 3D')
 
 def create_technical_drawing(dir_path, product):
-    doc = FreeCAD.open(dir_path)
+    import sys
+
+    import FreeCADGui
+
+    import os
+    from nanoplm import MODULE_DIR_PATH
+    
+    doc = FreeCAD.openDocument(dir_path)
+
+    destination = os.path.join(MODULE_DIR_PATH, 'static', 'projects', str(product["uuid"]) + '.PDF')
+    __objs__ = []
+    __objs__.append(doc.getObject("Page001"))
+
+    if hasattr(FreeCADGui, "exportOptions"):
+        options = FreeCADGui.exportOptions(destination)
+        FreeCADGui.export(__objs__, destination, options)
+    else:
+        FreeCADGui.export(__objs__, destination)
+
+    del __objs__
 
     doc.save()
     FreeCAD.closeDocument(doc.Name)
+
+    FreeCADGui.getMainWindow().close()
+
     print('Created technical drawing')
 
 def create_manufacturing_file(dir_path, product):

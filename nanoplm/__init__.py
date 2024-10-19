@@ -90,3 +90,10 @@ except:
 
 # Add routes to app
 from nanoplm import routes
+
+# Launch FreeCAD GUI
+import subprocess
+subprocess.Popen(['C:/PROGRA~1/' + app.config['SELECTED_FREECAD_VERSION'] + '/bin/FreeCAD.exe'])
+
+
+

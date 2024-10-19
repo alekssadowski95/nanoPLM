@@ -6,3 +6,4 @@ wtforms
 SQLAlchemy
 pyinstaller
 waitress
+PySide2

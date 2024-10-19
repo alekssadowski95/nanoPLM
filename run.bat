@@ -1,0 +1,1 @@
+"C:/PROGRA~1/FreeCAD 0.21/bin/FreeCAD.exe" "C:/Users/Aleksander/Documents/GitHub/nanoPLM/nanoplm/open_doc.py"
