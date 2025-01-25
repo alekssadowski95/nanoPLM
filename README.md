@@ -9,7 +9,7 @@ Open source PLM solution for small machine manufacturers - inatively supports Fr
 :point_right: Watch nanoPLM Video Overview: 
 [https://youtu.be/8V5PVpD8dvw](https://youtu.be/8V5PVpD8dvw)
 
-:point_right: Test nanoPLM now:
+:point_right: Demo nanoPLM now:
 [https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
 
 :point_right: Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
