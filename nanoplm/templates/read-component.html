@@ -1,0 +1,46 @@
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    
+    th, td {
+        padding-right: 0.6rem;
+    }
+</style>
+
+<h1>{{ component.name }}</h1>
+<table style="margin-bottom: 1rem;" >
+    <tr>
+        <td>UUID</td>
+        <td>{{ component.uuid }}</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>{{ component.name }}</td>
+    </tr>
+    <tr>
+        <td>Beschreibung</td>
+        <td>{{ component.description }}</td>
+    </tr>
+    <tr>
+        <td>Typ</td>
+        <td>{{ component.type }}</td>
+    </tr>
+    <tr>
+        <td>Nummer</td>
+        <td>{{ component.component_number }}</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>{{ component.status }}</td>
+    </tr>
+    <tr>
+        <td>Aktionen</td>
+        <td>
+            <a href="{{ url_for('update_component', component_uuid = component.uuid) }}">bearbeiten</a>
+            <br>
+            <a href="{{ url_for('delete_component', component_uuid = component.uuid) }}">entfernen</a>
+        </td>
+    </tr>
+</table>   
+<a href="{{ url_for('all_components') }}">< Zurück</a> 

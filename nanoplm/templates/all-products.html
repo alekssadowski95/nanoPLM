@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+
+td {
+    padding-right: 0.6rem;
+}
+
+th {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+}
+</style>
+{% endblock style %}
+
+{% block content %}
+<h1>Alle Produkte</h1>
+{% if NANOPLM_MODULE_FREECADCMD == False %}
+<span>[INFO]: "Wizard starten" ist nicht verfügbar. Um den Wizard zu starten muss FreeCAD installiert sein. Lade FreeCAD herunter und installiere es: <a href="https://www.freecad.org/downloads.php">https://www.freecad.org/downloads.php</a></span>
+<br>
+<br>
+{% endif %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Beschreibung</th>
+        <th>Typ</th>
+        <th>Nummer</th>
+        <th>Stammblatt-<br>breite</th>
+        <th>Plattensitz-<br>höhe</th>
+        <th>Plattensitz-<br>länge</th>
+        <th>Plattensitz-<br>winkel</th>
+        <th>Schnitt-<br>breite</th>
+        <th>Außen-<br>durchmesser</th>
+        <th>Bohrungs-<br>durchmesser</th>
+        <th>Zähnezahl</th>
+        <th>Dateien</th>
+        <th>Status</th>
+        <th>Aktionen</th>
+    </tr>
+    {% for product in products %}
+    <tr>
+        <td><a href="{{ url_for('read_product', product_uuid=product.uuid) }}">{{ product.name }}</a></td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.type }}</td>
+        <td>{{ convert_to_five_digit_string(product.number) }}</td>
+        <td>{{ product.stammblattbreite }} mm</td>
+        <td>{{ product.plattensitzhoehe }} mm</td>
+        <td>{{ product.plattensitzlaenge }} mm</td>
+        <td>{{ product.plattensitzwinkel }} mm</td>
+        <td>{{ product.schnittbreite }} mm</td>
+        <td>{{ product.aussendurchmesser }} mm</td>
+        <td>{{ product.bohrungsdurchmesser }} mm</td>
+        <td>{{ product.zaehnezahl }}</td>
+        <td>
+            {% if product.outdated_data == True %}
+            <span style="color: red;">Datensatz veraltet</span>
+            <br>
+            {% endif %}
+
+            {% if product.freecad_available == True %}
+            <a href="{{ url_for('static', filename='projects/'+product.uuid+'.FCStd') }}">FCSTD herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine FCSTD</span>
+            <br>
+            {% endif %}
+
+            {% if product.preview_available == True %}
+            <a href="{{ url_for('static', filename='projects/'+product.uuid+'.stl') }}">STL herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine STL</span>
+            <br>
+            {% endif %}
+
+            {% if product.generic_available == True %}
+            <a href="{{ url_for('static', filename='projects/'+product.uuid+'.step') }}">STEP herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine STEP</span>
+            <br>
+            {% endif %}
+
+            {% if product.techdraw_available == True %}
+            <a href="#">PDF herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine PDF</span>
+            <br>
+            {% endif %}
+
+            {% if product.mfg_available == True %}
+            <a href="{{ url_for('static', filename='projects/'+product.uuid+'.dxf') }}">DXF herunterladen</a>
+            <br>
+            {% else %}
+            <span>Keine DXF</span>
+            <br>
+            {% endif %}
+        </td>
+        <td>
+            {{ product.status }}
+            {% if product.status != 'Freigegeben' %}
+            <br>
+            <a href="{{ url_for('release_product', product_uuid=product.uuid) }}">freigeben</a>
+            {% endif %}
+        </td>
+        <td>
+            {% if NANOPLM_MODULE_FREECADCMD == True %}
+            <a href="{{ url_for('run_freecad_wizard', product_uuid=product.uuid) }}">Wizard starten</a>
+            <br>
+            {% else %}
+            <span style="color:grey; font-style: italic;">Wizard starten</span>
+            <br>
+            {% endif %}
+            <a href="{{ url_for('update_product', product_uuid=product.uuid) }}">bearbeiten</a>
+            <br>
+            <a href="{{ url_for('delete_product', product_uuid=product.uuid) }}">entfernen</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}
+
+{% block scripts %}{% endblock scripts %}

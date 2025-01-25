@@ -11,21 +11,132 @@
         <title>nanoPLM - Produktdaten im kleinen Team verwalten</title>
     {% endif %}
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='factory.png') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='nanoplm-logo.png') }}">
 
     {% block style %}{% endblock style %}
 </head>
-<body>
-    <p style="font-size: 1.1rem; "><a style="color: black; text-decoration: none;" href="{{ url_for('home') }}">ALSADO | nanoPLM</a></p>
-    <nav style="margin-bottom: 1rem;">
-        <a style="margin-right: 0.4rem;" href="{{ url_for('home') }}">Start</a>
-        <a style="margin-right: 0.4rem;" href="{{ url_for('create_product') }}">Produkt erstellen</a>
-        <a style="margin-right: 0.4rem;" href="{{ url_for('getting_started') }}">Schnellstart</a>
-    </nav>
-    {% block content %}{% endblock content %}
-    <p>Copyright (C) 2024 Aleksander Sadowski. Alle Rechte vorbehalten. Powered by <a href="https://www.alsado.de">www.alsado.de</a></p>
-
+<body style="min-width: 100%; min-height: 100%; max-width: 100%; max-height: 100%; margin: 0; padding: 0;">
+    <!-- Header -->
+    <div class="row mx-0" style="height: 52px; background-color: rgb(9, 68, 146); border-bottom: 2px solid rgb(214, 214, 214);">
+        <header style="padding-left: 10px; padding-right: 6px;" class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom">
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a href="{{ url_for('home') }}" class="d-inline-flex link-body-emphasis text-decoration-none">
+                    <img src="{{ url_for('static', filename='nanoplm-logo-muted.png') }}" role="img" aria-label="Bootstrap" height="40px" style="padding-right: 8px;"><use xlink:href="#bootstrap"></use></img>
+                    <span style="color: rgb(255, 255, 255); text-decoration: none; padding-top: 12px; padding-bottom: 12px; font-size: 18px;">nanoPLM</span>
+                </a>
+            </div>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <form role="search">
+                    <input type="search" style="width: 380px; height: 36px;" class="form-control" placeholder="Suche..." aria-label="Search">
+                </form>
+            </ul>
+            <div class="col-md-3 text-end">
+                <button class="btn btn-link p-1">
+                    <img src="{{ url_for('static', filename='info.png') }}" alt="" style="padding: 0;" height="32px" width="32px" onclick="showSidebarRight()">
+                </button>
+            </div>
+        </header>
+      </div>
+    </div>
+    <!-- Main view and sidebars -->
+    <div class="row p-0 m-0" style="min-height: calc(100vh - 79px); max-height: calc(100vh - 79px);">
+        <!-- Sidebar left-->
+        <div class="col" style="overflow-y: scroll; overflow-x: hidden; min-height: calc(100vh - 79px); max-height: calc(100vh - 79px); background-color: aliceblue; min-width: 259px; max-width: 259px; background-color: #f8f9fa; border: none; padding: 0; border-right: 1px solid lightgray;">
+            <nav>
+                <ul style="list-style: none; padding-left: 12px; padding-right: 12px; margin: 0; margin-top: 8px; ">
+                    <span style="font-size: 0.8rem; color: gray;">Produkt-Datenbank</span>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-top: 16px; margin-bottom: 8px;" onclick="showQuickstart()">Schnellstart</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showAllComponents()">Komponenten</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showAllComponentInstances()">Instanzen</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showAllClients()">Kunden</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showAllFiles()">Dateien</button></li>
+                    <hr style="margin-bottom: 16px; height: 1px;color: lightgray; background: lightgray; font-size: 0; border: 0;">
+                    <span style="font-size: 0.8rem; color: gray;">Werkzeuge</span>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-top: 8px; margin-bottom: 8px;" onclick="showEspacenet()">Espacenet</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showFCViewer()">FCViewer</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showItemEngineeringtool()">item Engineeringtool</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showItemMotionDesigner()">item MotionDesigner®</button></li>                   
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="show3DFindIt()">3DFindit</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showGWJFitCalculator()">GWJ Passungsrechner</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showGWJShaftDimensions()">GWJ Wellenrechner</button></li>
+                    <li><button class="btn btn-light text-muted" style="text-align: left; width: 216px; margin-bottom: 8px;" onclick="showGWJBoltDimensions()">GWJ Schraubenrechner</button></li>
+                </ul> 
+            </nav>
+        </div>
+        <!-- Main view -->
+        <div class="col p-0" style="min-height: calc(100vh - 79px); max-height: calc(100vh - 79px); background-color: rgb(86, 142, 190); background-color: #f8f9fa;">
+            <iframe id="main-view-iframe" src="{{ url_for('all_components') }}" frameborder="0" style="min-width: 100%; min-height: calc(100vh - 79px); max-height: calc(100vh - 79px); margin: 0; display: block;"></iframe>
+        </div>
+        <!-- Sidebar right -->
+        <div id="sidebar-right" class="col p-0" style="background-color: #f8f9fa; min-width: 319px; max-width: 319px; border-left: 1px solid lightgray; border-right: 1px solid lightgray; display: block;">
+            <iframe id="sidebar-right-iframe" src="{{ url_for('module_help', module_name = 'all_components') }}" frameborder="0" style="min-width: 100%; min-height: calc(100vh - 79px); max-height: calc(100vh - 79px); margin: 0; display: block;"></iframe>
+        </div>
+    </div>
+    <!-- Bottom bar -->
+    <div style="min-height: 27px; max-height: 27px; margin: 0px;background-color:rgb(255, 255, 255); color: rgb(0, 0, 0); border-top: 1px solid lightgray;">
+        <span style="font-size: 11px; margin: 0px; padding-left: 8px;">
+            <img src="{{ url_for('static', filename='alsado-logo-18-durchsichtig.png') }}" height="9px" style="padding-right: 4px;"></img>
+            Copyright (C) 2024 - 2025 Aleksander Sadowski. Alle Rechte vorbehalten. nanoPLM is powered by 
+            <a style="color: rgb(0, 0, 0);" href="https://www.alsado.de">www.alsado.de</a>
+        </span>
+    </div>
+    <script>
+        function showQuickstart(){
+            document.getElementById("main-view-iframe").src = "{{ url_for('getting_started') }}";
+        }
+        function showAllComponents(){
+            document.getElementById("main-view-iframe").src = "{{ url_for('all_components') }}";
+            document.getElementById("sidebar-right-iframe").src = "{{ url_for('module_help', module_name = 'all_components') }}";
+        }
+        function showAllComponentInstances(){
+            document.getElementById("main-view-iframe").src = "{{ url_for('all_component_instances') }}";
+        }
+        function showAllClients(){
+            document.getElementById("main-view-iframe").src = "{{ url_for('all_clients') }}";
+        }
+        function showAllFiles(){
+            document.getElementById("main-view-iframe").src = "{{ url_for('all_files') }}";
+        }
+        function showEspacenet(){
+            document.getElementById("main-view-iframe").src = "https://worldwide.espacenet.com/patent/cpc-browser#";
+        }
+        function showFCViewer(){
+            document.getElementById("main-view-iframe").src = "https://www.fcviewer.com/";
+        }
+        function showItemEngineeringtool(){
+            document.getElementById("main-view-iframe").src = "https://tools.item24.com/DEde/tools/engineeringtool/";
+            document.getElementById("sidebar-right-iframe").src = "{{ url_for('module_help', module_name = 'item_engineeringtool') }}";
+        }
+        function show3DFindIt(){
+            document.getElementById("main-view-iframe").src = "https://www.3dfindit.com";
+            document.getElementById("sidebar-right-iframe").src = "{{ url_for('module_help', module_name = '3d_find_it') }}";
+        }
+        function showGWJFitCalculator(){
+            document.getElementById("main-view-iframe").src = "https://modules21.eassistant.eu/fitcalc";
+        }
+        function showGWJShaftDimensions(){
+            document.getElementById("main-view-iframe").src = "https://modules21.eassistant.eu/shaftdim";
+        }
+        function showGWJBoltDimensions(){
+            document.getElementById("main-view-iframe").src = "https://modules21.eassistant.eu/boltdim";
+        }
+        function showItemMotionDesigner(){
+            document.getElementById("main-view-iframe").src = "https://motiondesigner.item24.com";
+        }
+        function showSidebarRight(){
+            var sidebarRight = document.getElementById("sidebar-right");
+            if (sidebarRight.style.display == "none") {
+                sidebarRight.style.display = "block";
+            }
+            else {
+                sidebarRight.style.display = "none";
+            }
+        }
+    </script>
     {% block scripts %}{% endblock scripts %}
 </body>
 </html>

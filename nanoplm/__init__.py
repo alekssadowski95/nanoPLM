@@ -17,6 +17,64 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
+
+# database models
+from datetime import datetime
+
+class Component(db.Model):
+    # required
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    uuid = db.Column(db.String(32), unique=True, nullable=False)
+    name = db.Column(db.String(100))
+    component_number = db.Column(db.String(100))
+    # default
+    date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
+    is_active = db.Column(db.Boolean, nullable=False, default=True)  
+    # parameters
+    description = db.Column(db.String(1000))
+    type = db.Column(db.String(200))
+    child_components = db.Column(db.String(200))
+    status = db.Column(db.String(200))
+    files = db.Column(db.String(200))
+
+class Instance(db.Model):
+    # required
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    uuid = db.Column(db.String(32), unique=True, nullable=False)
+    component = db.Column(db.String(100), nullable=False)
+    serial_number = db.Column(db.String(1000))
+    # default
+    date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
+    is_active = db.Column(db.Boolean, nullable=False, default=True)  
+    # parameters
+    description = db.Column(db.String(1000))
+    type = db.Column(db.String(200))
+    files = db.Column(db.String(200))
+    client = db.Column(db.String(200))
+
+class Client(db.Model):
+    # required
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    uuid = db.Column(db.String(32), unique=True, nullable=False)
+    # default
+    date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
+    is_active = db.Column(db.Boolean, nullable=False, default=True)  
+    # parameters
+    description = db.Column(db.String(1000))
+    files = db.Column(db.String(200))
+
+class File(db.Model):
+    # required
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    uuid = db.Column(db.String(32), unique=True, nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    # default
+    date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
+    is_active = db.Column(db.Boolean, nullable=False, default=True)  
+    # parameters
+    description = db.Column(db.String(1000))
+    type = db.Column(db.String(200))
+
 # Add secret key
 app.config['SECRET_KEY'] = 'afs87fas7bfsa98fbasbas98fh78oizu'
 
@@ -92,8 +150,9 @@ except:
 from nanoplm import routes
 
 # Launch FreeCAD GUI
+'''
 import subprocess
 subprocess.Popen(['C:/PROGRA~1/' + app.config['SELECTED_FREECAD_VERSION'] + '/bin/FreeCAD.exe'])
-
+'''
 
 

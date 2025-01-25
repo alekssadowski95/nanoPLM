@@ -2,26 +2,169 @@ import json
 
 from flask import render_template, url_for, redirect
 
-from nanoplm import app
-from .forms import CreateProductForm
-#from .models import Product
+from nanoplm import app, db, Component
+from .forms import CreateComponentForm
 from .sample import products
 
-
-@app.route('/')
-def home():
-    if app.config['NANOPLM_FIRST_STARTUP'] == True:
-        return redirect(url_for('welcome'))
-    return render_template('home.html', convert_to_five_digit_string = convert_to_five_digit_string, products = reversed(products), NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD'], SELECTED_FREECAD_VERSION = app.config['SELECTED_FREECAD_VERSION']) 
 
 @app.route('/welcome')
 def welcome():
     app.config['NANOPLM_FIRST_STARTUP'] = False
     return render_template('welcome.html', NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD'], SELECTED_FREECAD_VERSION = app.config['SELECTED_FREECAD_VERSION']) 
 
+@app.route('/')
+def home():
+    if app.config['NANOPLM_FIRST_STARTUP'] == True:
+        return redirect(url_for('welcome'))
+    return render_template('home.html') 
+
+@app.route('/search/<search_query>')
+def search(search_query):
+    return render_template('search.html') 
+
 @app.route('/getting-started')
 def getting_started():
     return render_template('getting-started.html', title = "Schnellstart") 
+
+'''
+CRUD for components
+'''
+@app.route('/all-components')
+def all_components():
+    components = Component.query.filter_by(is_active = True).limit(1000).all()
+    return render_template('all-components.html', components = components) 
+
+@app.route('/create-component', methods=['GET', 'POST'])
+def create_component():
+    form = CreateComponentForm()
+    if form.validate_on_submit():
+        new_component = Component(
+            uuid = generate_uuid(), 
+            name = form.name.data, 
+            description = form.description.data,
+            type = form.type.data,
+            status = 'draft',
+            component_number = "ABC-00001"
+            )
+        db.session.add(new_component)
+        db.session.commit()
+        return redirect(url_for('all_components'))
+    return render_template('create-component.html', form = form) 
+
+@app.route('/read-component/<component_uuid>')
+def read_component(component_uuid):
+    target_component = Component.query.filter_by(uuid = component_uuid).first()
+    return render_template('read-component.html', component = target_component) 
+
+@app.route('/update-component/<component_uuid>', methods=['GET', 'POST'])
+def update_component(component_uuid):
+    target_component = Component.query.filter_by(uuid = component_uuid).first()
+    form = CreateComponentForm()
+    if form.validate_on_submit():
+        target_component.name = form.name.data
+        target_component.description = form.description.data
+        target_component.type = form.type.data
+        db.session.commit()
+        return redirect(url_for('all_components'))
+    return render_template('update-component.html', component = target_component, form = form) 
+
+@app.route('/delete-component/<component_uuid>', methods=['GET', 'POST'])
+def delete_component(component_uuid):
+    target_component = Component.query.filter_by(uuid = component_uuid).first()
+    target_component.is_active = False
+    db.session.commit()
+    return redirect(url_for('all_components'))
+
+'''
+CRUD for component instances
+'''
+@app.route('/all-component-instances')
+def all_component_instances():
+    return render_template('all-component-instances.html') 
+
+@app.route('/create-component-instance')
+def create_component_instance():
+    return render_template('create-component-instance.html') 
+
+@app.route('/component-instance/<component_instance_uuid>')
+def read_component_instance(component_instance_uuid):
+    return render_template('read-component-instance.html') 
+
+@app.route('/update-component-instance/<component_instance_uuid>')
+def update_component_instance(component_instance_uuid):
+    return render_template(redirect(url_for('read_component_instance'))) 
+
+@app.route('/delete-component-instance/<component_instance_uuid>')
+def delete_component_instance(component_instance_uuid):
+    return render_template(redirect(url_for('home'))) 
+
+'''
+CRUD for clients
+'''
+@app.route('/all-clients')
+def all_clients():
+    return render_template('all-clients.html') 
+
+@app.route('/create-client')
+def create_client():
+    return render_template('create-client.html') 
+
+@app.route('/read-client/<client_uuid>')
+def read_client(client_uuid):
+    return render_template('read-client.html') 
+
+@app.route('/update-client/<client_uuid>')
+def update_client(client_uuid):
+    return render_template(redirect(url_for('read_client'))) 
+
+@app.route('/delete-client/<file_uuid>')
+def delete_client(client_uuid):
+    return render_template(redirect(url_for('home'))) 
+
+'''
+CRUD for files
+'''
+@app.route('/all-files')
+def all_files():
+    return render_template('all-files.html') 
+
+@app.route('/create-file')
+def create_file():
+    return render_template('create-file.html') 
+
+@app.route('/read-file/<file_uuid>')
+def read_file(file_uuid):
+    return render_template('read-file.html') 
+
+@app.route('/update-file/<file_uuid>')
+def update_file(file_uuid):
+    return render_template(redirect(url_for('read_file'))) 
+
+@app.route('/delete-file/<file_uuid>')
+def delete_file(file_uuid):
+    return render_template(redirect(url_for('home'))) 
+
+@app.route('/module-info/<module_name>')
+def module_help(module_name):
+    if module_name == "item_engineeringtool":
+        return render_template('item-engineeringtool-help.html') 
+    if module_name == "all_components":
+        return render_template('all-components-help.html') 
+    if module_name == "3d_find_it":
+            return render_template('3dfindit-help.html') 
+    else:
+        pass 
+
+
+'''
+Old stuff
+'''
+from .forms import CreateProductForm
+
+
+@app.route('/all-products')
+def all_products():
+    return render_template('all-products.html', convert_to_five_digit_string = convert_to_five_digit_string, products = reversed(products), NANOPLM_MODULE_FREECADCMD = app.config['NANOPLM_MODULE_FREECADCMD'], SELECTED_FREECAD_VERSION = app.config['SELECTED_FREECAD_VERSION']) 
 
 @app.route('/create-product', methods=['GET', 'POST'])
 def create_product():
@@ -29,7 +172,7 @@ def create_product():
     form = CreateProductForm()
     if form.validate_on_submit():
         new_product = {}
-        new_product['uuid'] = generate_product_uuid()
+        new_product['uuid'] = generate_uuid()
         new_product['name'] = form.name.data
         new_product['description'] = form.description.data
         new_product['type'] = form.type.data
@@ -145,7 +288,7 @@ def copy_freecad_file(uuid):
     shutil.copy(source, destination)
     return destination
 
-def generate_product_uuid():
+def generate_uuid():
     import uuid
     return str(uuid.uuid4())
 

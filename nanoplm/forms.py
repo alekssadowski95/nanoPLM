@@ -15,3 +15,9 @@ class CreateProductForm(FlaskForm):
     bohrungsdurchmesser = StringField('Bohrungsdurchmesser (mm)')
     zaehnezahl = StringField('Zähnezahl')
     submit = SubmitField('Erstellen')
+
+class CreateComponentForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired(), Length(min=1, max=200)])
+    description = StringField('Beschreibung', validators=[DataRequired(), Length(min=1, max=1000)])
+    type = StringField('Typ', validators=[DataRequired(), Length(min=1, max=200)])
+    submit = SubmitField('Erstellen')
