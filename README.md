@@ -10,13 +10,6 @@ Open source PLM solution for small machine manufacturers - natively supports Fre
 :point_right: Watch nanoPLM Video Overview: 
 [https://youtu.be/8V5PVpD8dvw](https://youtu.be/8V5PVpD8dvw)
 
-:point_right: Demo nanoPLM now:
-[https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
-
-:point_right: Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
-[https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip](https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip)
-
-
 
 ![nanoplm-item-engineeringtool-integration.jpg](nanoplm-item-engineeringtool-integration.jpg)
 
@@ -43,3 +36,11 @@ Open source PLM solution for small machine manufacturers - natively supports Fre
 - Machinery directive, CE marking, risk assessment, instructions manual, declaration of conformity
 - Price buying, price selling
 - ...
+
+## Get nanoPLM
+
+:point_right: Demo nanoPLM now:
+[https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
+
+:point_right: Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
+[https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip](https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip)
