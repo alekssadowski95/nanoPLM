@@ -17,7 +17,7 @@ Open source PLM solution for small machine manufacturers - inatively supports Fr
 
 
 
-![nanoplm-screenshot-produktuebersicht-2.jpg](nanoplm-screenshot-produktuebersicht-2.jpg)
+![nanoplm-item-engineeringtool-integration.jpg](nanoplm-item-engineeringtool-integration.jpg)
 
 
 
