@@ -3,6 +3,7 @@ Open source PLM solution for small machine manufacturers - inatively supports Fr
 - Run locally without an internet connection.
 - Keep all your data private.
 - Focusing on ease of use - even beginners can install and use it.
+- FreeCAD CAD Models get priority treatment - native FreeCAD support
 - Automate your FreeCAD workflows from a central place.
 - Compatible with Windows 10
 
