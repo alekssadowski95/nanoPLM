@@ -1,5 +1,5 @@
 # nanoPLM
-Open source PLM solution for small machine manufacturers - inatively supports FreeCAD.
+Open source PLM solution for small machine manufacturers - natively supports FreeCAD.
 - Run locally without an internet connection.
 - Keep all your data private.
 - Focusing on ease of use - even beginners can install and use it.
