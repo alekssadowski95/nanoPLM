@@ -1,23 +1,17 @@
 # nanoPLM
-Open source PLM solution for small machine manufacturers - intended to be used with FreeCAD.
+Open source PLM solution for small machine manufacturers - natively supports FreeCAD.
 - Run locally without an internet connection.
 - Keep all your data private.
 - Focusing on ease of use - even beginners can install and use it.
+- FreeCAD CAD Models get priority treatment - native FreeCAD support
 - Automate your FreeCAD workflows from a central place.
 - Compatible with Windows 10
 
 :point_right: Watch nanoPLM Video Overview: 
 [https://youtu.be/8V5PVpD8dvw](https://youtu.be/8V5PVpD8dvw)
 
-:point_right: Test nanoPLM now:
-[https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
 
-:point_right: Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
-[https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip](https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip)
-
-
-
-![nanoplm-screenshot-produktuebersicht-2.jpg](nanoplm-screenshot-produktuebersicht-2.jpg)
+![nanoplm-item-engineeringtool-integration.jpg](nanoplm-item-engineeringtool-integration.jpg)
 
 
 
@@ -42,3 +36,11 @@ Open source PLM solution for small machine manufacturers - intended to be used w
 - Machinery directive, CE marking, risk assessment, instructions manual, declaration of conformity
 - Price buying, price selling
 - ...
+
+## Get nanoPLM
+
+:point_right: Demo nanoPLM now:
+[https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
+
+:point_right: Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
+[https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip](https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip)
