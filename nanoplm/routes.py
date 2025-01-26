@@ -2,8 +2,8 @@ import json
 
 from flask import render_template, url_for, redirect
 
-from nanoplm import app, db, Component
-from .forms import CreateComponentForm
+from nanoplm import app, db, Component, Instance
+from .forms import CreateComponentForm, CreateComponentInstanceForm
 from .sample import products
 
 
@@ -80,21 +80,33 @@ CRUD for component instances
 '''
 @app.route('/all-component-instances')
 def all_component_instances():
-    return render_template('all-component-instances.html') 
+    component_instances = Instance.query.filter_by(is_active = True).limit(1000).all()
+    return render_template('all-component-instances.html', component_instances = component_instances) 
 
-@app.route('/create-component-instance')
+@app.route('/create-component-instance', methods=['GET', 'POST'])
 def create_component_instance():
-    return render_template('create-component-instance.html') 
+    form = CreateComponentInstanceForm()
+    if form.validate_on_submit():
+        new_component_instance = Instance(
+            uuid = generate_uuid(), 
+            name = form.name.data, 
+            description = form.description.data,
+            type = form.type.data,
+            )
+        db.session.add(new_component_instance)
+        db.session.commit()
+        return redirect(url_for('all_component_instances'))
+    return render_template('create-component-instance.html', form = form) 
 
 @app.route('/component-instance/<component_instance_uuid>')
 def read_component_instance(component_instance_uuid):
     return render_template('read-component-instance.html') 
 
-@app.route('/update-component-instance/<component_instance_uuid>')
+@app.route('/update-component-instance/<component_instance_uuid>', methods=['GET', 'POST'])
 def update_component_instance(component_instance_uuid):
     return render_template(redirect(url_for('read_component_instance'))) 
 
-@app.route('/delete-component-instance/<component_instance_uuid>')
+@app.route('/delete-component-instance/<component_instance_uuid>', methods=['GET', 'POST'])
 def delete_component_instance(component_instance_uuid):
     return render_template(redirect(url_for('home'))) 
 
@@ -107,17 +119,17 @@ def all_clients():
 
 @app.route('/create-client')
 def create_client():
-    return render_template('create-client.html') 
+    return render_template('create-client.html', methods=['GET', 'POST']) 
 
 @app.route('/read-client/<client_uuid>')
 def read_client(client_uuid):
     return render_template('read-client.html') 
 
-@app.route('/update-client/<client_uuid>')
+@app.route('/update-client/<client_uuid>', methods=['GET', 'POST'])
 def update_client(client_uuid):
     return render_template(redirect(url_for('read_client'))) 
 
-@app.route('/delete-client/<file_uuid>')
+@app.route('/delete-client/<file_uuid>', methods=['GET', 'POST'])
 def delete_client(client_uuid):
     return render_template(redirect(url_for('home'))) 
 
@@ -128,7 +140,7 @@ CRUD for files
 def all_files():
     return render_template('all-files.html') 
 
-@app.route('/create-file')
+@app.route('/create-file', methods=['GET', 'POST'])
 def create_file():
     return render_template('create-file.html') 
 
@@ -136,14 +148,17 @@ def create_file():
 def read_file(file_uuid):
     return render_template('read-file.html') 
 
-@app.route('/update-file/<file_uuid>')
+@app.route('/update-file/<file_uuid>', methods=['GET', 'POST'])
 def update_file(file_uuid):
     return render_template(redirect(url_for('read_file'))) 
 
-@app.route('/delete-file/<file_uuid>')
+@app.route('/delete-file/<file_uuid>', methods=['GET', 'POST'])
 def delete_file(file_uuid):
     return render_template(redirect(url_for('home'))) 
 
+'''
+Module help
+'''
 @app.route('/module-info/<module_name>')
 def module_help(module_name):
     if module_name == "item_engineeringtool":
@@ -154,7 +169,6 @@ def module_help(module_name):
             return render_template('3dfindit-help.html') 
     else:
         pass 
-
 
 '''
 Old stuff

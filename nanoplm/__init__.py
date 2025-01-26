@@ -25,30 +25,28 @@ class Component(db.Model):
     # required
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     uuid = db.Column(db.String(32), unique=True, nullable=False)
-    name = db.Column(db.String(100))
-    component_number = db.Column(db.String(100))
+    name = db.Column(db.String(100), nullable=False)
+    component_number = db.Column(db.String(100), nullable=False)
     # default
     date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
-    is_active = db.Column(db.Boolean, nullable=False, default=True)  
-    # parameters
-    description = db.Column(db.String(1000))
+    is_active = db.Column(db.Boolean, nullable=False, default=True)
+    status = db.Column(db.String(200), nullable=False, default="draft")  
+    # optional
     type = db.Column(db.String(200))
+    description = db.Column(db.String(1000))
     child_components = db.Column(db.String(200))
-    status = db.Column(db.String(200))
     files = db.Column(db.String(200))
 
 class Instance(db.Model):
     # required
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     uuid = db.Column(db.String(32), unique=True, nullable=False)
+    serial_number = db.Column(db.String(1000), unique=True, nullable=False)
     component = db.Column(db.String(100), nullable=False)
-    serial_number = db.Column(db.String(1000))
     # default
     date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
     is_active = db.Column(db.Boolean, nullable=False, default=True)  
-    # parameters
-    description = db.Column(db.String(1000))
-    type = db.Column(db.String(200))
+    # optional
     files = db.Column(db.String(200))
     client = db.Column(db.String(200))
 
@@ -56,11 +54,11 @@ class Client(db.Model):
     # required
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     uuid = db.Column(db.String(32), unique=True, nullable=False)
+    name = db.Column(db.String(200), nullable=False)
     # default
     date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
     is_active = db.Column(db.Boolean, nullable=False, default=True)  
-    # parameters
-    description = db.Column(db.String(1000))
+    # optional
     files = db.Column(db.String(200))
 
 class File(db.Model):
@@ -71,9 +69,9 @@ class File(db.Model):
     # default
     date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
     is_active = db.Column(db.Boolean, nullable=False, default=True)  
-    # parameters
+    type = db.Column(db.String(200), nullable=False, default="general")
+    # optional
     description = db.Column(db.String(1000))
-    type = db.Column(db.String(200))
 
 # Add secret key
 app.config['SECRET_KEY'] = 'afs87fas7bfsa98fbasbas98fh78oizu'
@@ -99,6 +97,7 @@ for version in reversed(app.config['SUPPORTED_FREECAD_VERSIONS']):
     else:
         print(version_path + '=' + str(os.path.isdir(version_path)))
 
+'''
 # Add path to FreeCAD Python interface
 # path to your FreeCAD.so or FreeCAD.dll file
 FREECAD_ABS_PATH = 'C:/PROGRA~1/' + app.config['SELECTED_FREECAD_VERSION'] + '/bin'
@@ -145,6 +144,8 @@ try:
 except:
     app.config['NANOPLM_MODULE_FREECADGUI'] = False
     print('FreeCAD GUI API not found. Your server may not support the GUI API. Also, check the FREECAD_ABS_PATH variable.')
+'''
+
 
 # Add routes to app
 from nanoplm import routes
