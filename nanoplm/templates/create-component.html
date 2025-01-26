@@ -4,15 +4,15 @@
     <table>
         <tr>
             <td>{{ form.name.label }}</td>
-            <td>{{ form.name }}</td>
+            <td>{{ form.name(autocomplete="off") }}</td>
         </tr>
         <tr>
             <td>{{ form.description.label }}</td>
-            <td>{{ form.description }}</td>
+            <td>{{ form.description(autocomplete="off") }}</td>
         </tr>
         <tr>
             <td>{{ form.type.label }}</td>
-            <td>{{ form.type }}</td>
+            <td>{{ form.type(autocomplete="off") }}</td>
         </tr>
         <tr>
             <td></td>
