@@ -44,3 +44,12 @@ Open source PLM solution for small machine manufacturers - natively supports Fre
 
 :point_right: Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
 [https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip](https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip)
+
+
+## Contact
+ALSADO Inh. Aleksander Sadowski<br>
+Liebfrauenstraße 31<br>
+53757 Sankt Augustin<br>
+Germany<br>
+Email: [info@alsado.de](mailto:info@alsado.de)<br>
+Website: [https://www.alsado.de](https://www.alsado.de)<br>
