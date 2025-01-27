@@ -105,7 +105,10 @@ def update_component_instance(component_instance_uuid):
 
 @app.route('/delete-component-instance/<component_instance_uuid>', methods=['GET', 'POST'])
 def delete_component_instance(component_instance_uuid):
-    return render_template(redirect(url_for('home'))) 
+    target_component_instance = Instance.query.filter_by(uuid = component_instance_uuid).first()
+    target_component_instance.is_active = False
+    db.session.commit()
+    return redirect(url_for('all_component_instances'))
 
 '''
 CRUD for clients
@@ -138,7 +141,10 @@ def update_client(client_uuid):
 
 @app.route('/delete-client/<client_uuid>', methods=['GET', 'POST'])
 def delete_client(client_uuid):
-    return redirect(url_for('home'))
+    target_client = Instance.query.filter_by(uuid = client_uuid).first()
+    target_client.is_active = False
+    db.session.commit()
+    return redirect(url_for('all_clients'))
 
 '''
 CRUD for files
@@ -172,7 +178,10 @@ def update_file(file_uuid):
 
 @app.route('/delete-file/<file_uuid>', methods=['GET', 'POST'])
 def delete_file(file_uuid):
-    return render_template(redirect(url_for('home'))) 
+    target_file = Instance.query.filter_by(uuid = file_uuid).first()
+    target_file.is_active = False
+    db.session.commit()
+    return render_template(redirect(url_for('a_files'))) 
 
 '''
 Module help

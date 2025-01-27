@@ -1,49 +1,50 @@
-<style>
-    table, th, td {
-      border: 1px solid black;
-      margin-top: 1rem;
-    }
+{% extends "base-mainview.html"%}
+
+{% block style %}{% endblock style %}
+
+{% block content %}
+<h1 class="mb-5">Alle Komponenten</h1>
+<button type="button" class="btn btn-outline-dark mb-3" onclick="showCreateComponent()">Neue Komponente</button>
+<table class="table table-striped table-hover" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>UUID</th>
+            <th>Nummer</th>
+            <th>Erstellungsdatum</th>
+            <th>Status</th>
+            <th>Dateien</th>
+            <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for component in components %}
+        <tr>
+            <td><a href="{{ url_for('read_component', component_uuid = component.uuid) }}">{{ component.name }}</a></td>
+            <td>{{ component.uuid }}</td>
+            <td>{{ component.component_number }}</td>
+            <td>{{ component.date_created }}</td>
+            <td>{{ component.status }}</td>
+            <td>{{ component.files }}</td>
+            <td>
+                <a href="{{ url_for('update_component', component_uuid = component.uuid) }}">bearbeiten</a>
+                <br>
+                <a href="{{ url_for('delete_component', component_uuid = component.uuid) }}">entfernen</a>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
     
-    td {
-        padding-right: 0.6rem;
-    }
-    
-    th {
-        padding-left: 0.6rem;
-        padding-right: 0.6rem;
-    }
-</style>
-    
-<h1>Alle Komponenten</h1>
-<button onclick="showCreateComponent()">Neue Komponente</button>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>UUID</th>
-        <th>Nummer</th>
-        <th>Erstellungsdatum</th>
-        <th>Status</th>
-        <th>Dateien</th>
-        <th>Aktionen</th>
-    </tr>
-    {% for component in components %}
-    <tr>
-        <td><a href="{{ url_for('read_component', component_uuid = component.uuid) }}">{{ component.name }}</a></td>
-        <td>{{ component.uuid }}</td>
-        <td>{{ component.component_number }}</td>
-        <td>{{ component.date_created }}</td>
-        <td>{{ component.status }}</td>
-        <td>{{ component.files }}</td>
-        <td>
-            <a href="{{ url_for('update_component', component_uuid = component.uuid) }}">bearbeiten</a>
-            <br>
-            <a href="{{ url_for('delete_component', component_uuid = component.uuid) }}">entfernen</a>
-        </td>
-    </tr>
-    {% endfor %}
+      
+
 </table>
+
+{% endblock content %}
+
+{% block scripts %}
 <script>
     function showCreateComponent(){
         window.top.document.getElementById("main-view-iframe").src = "{{ url_for('create_component') }}";
     }
 </script>
+{% endblock scripts %}
