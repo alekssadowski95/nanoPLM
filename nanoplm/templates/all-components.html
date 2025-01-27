@@ -11,7 +11,8 @@
 {% block content %}
 <h1 class="mb-5">Alle Komponenten</h1>
 <button type="button" class="btn btn-outline-dark mb-3" onclick="showCreateComponent()"><i class="bi-plus-lg" style="padding-right: 6px;"></i>Neue Komponente</button>
-<table class="table table-striped table-hover" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
+<p class="mb-2">Es wurden {{ len(components) }} Komponenten gefunden.</p>
+<table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
     <thead>
         <tr>
             <th>Name</th>
@@ -34,6 +35,7 @@
             <td>{{ component.files }}</td>
             <td>
                 <nobr>
+                    <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('read_component', component_uuid = component.uuid) }}"><i class="bi-eye"></i></a>
                     <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_component', component_uuid = component.uuid) }}"><i class="bi-pencil"></i></a>
                     <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_component', component_uuid = component.uuid) }}"><i class="bi-x-lg"></i></a>
                 </nobr>

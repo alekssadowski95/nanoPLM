@@ -32,7 +32,7 @@ CRUD for components
 @app.route('/all-components')
 def all_components():
     components = Component.query.filter_by(is_active = True).limit(1000).all()
-    return render_template('all-components.html', components = components) 
+    return render_template('all-components.html', components = components, len = len) 
 
 @app.route('/create-component', methods=['GET', 'POST'])
 def create_component():
