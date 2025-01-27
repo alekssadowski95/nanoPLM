@@ -1,10 +1,16 @@
 {% extends "base-mainview.html"%}
 
-{% block style %}{% endblock style %}
+{% block style %}
+<style>
+    .btn-custom-list-delete:hover {
+        color: white;
+    }
+</style>
+{% endblock style %}
 
 {% block content %}
 <h1 class="mb-5">Alle Komponenten</h1>
-<button type="button" class="btn btn-outline-dark mb-3" onclick="showCreateComponent()">Neue Komponente</button>
+<button type="button" class="btn btn-outline-dark mb-3" onclick="showCreateComponent()"><i class="bi-plus-lg" style="padding-right: 6px;"></i>Neue Komponente</button>
 <table class="table table-striped table-hover" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
     <thead>
         <tr>
@@ -14,7 +20,7 @@
             <th>Erstellungsdatum</th>
             <th>Status</th>
             <th>Dateien</th>
-            <th>Aktionen</th>
+            <th></th>
         </tr>
       </thead>
       <tbody>
@@ -27,9 +33,10 @@
             <td>{{ component.status }}</td>
             <td>{{ component.files }}</td>
             <td>
-                <a href="{{ url_for('update_component', component_uuid = component.uuid) }}">bearbeiten</a>
-                <br>
-                <a href="{{ url_for('delete_component', component_uuid = component.uuid) }}">entfernen</a>
+                <nobr>
+                    <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_component', component_uuid = component.uuid) }}"><i class="bi-pencil"></i></a>
+                    <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_component', component_uuid = component.uuid) }}"><i class="bi-x-lg"></i></a>
+                </nobr>
             </td>
         </tr>
         {% endfor %}
