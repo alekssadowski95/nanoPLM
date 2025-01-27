@@ -25,24 +25,22 @@ class Component(db.Model):
     # required
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     uuid = db.Column(db.String(32), unique=True, nullable=False)
-    name = db.Column(db.String(100), nullable=False)
-    component_number = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(200), nullable=False)
+    component_number = db.Column(db.String(200), nullable=False)
     # default
     date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
     is_active = db.Column(db.Boolean, nullable=False, default=True)
     status = db.Column(db.String(200), nullable=False, default="draft")  
     # optional
-    type = db.Column(db.String(200))
     description = db.Column(db.String(1000))
-    child_components = db.Column(db.String(200))
     files = db.Column(db.String(200))
 
 class Instance(db.Model):
     # required
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     uuid = db.Column(db.String(32), unique=True, nullable=False)
-    serial_number = db.Column(db.String(1000), unique=True, nullable=False)
-    component = db.Column(db.String(100), nullable=False)
+    serial_number = db.Column(db.String(200), nullable=False)
+    component = db.Column(db.String(200), nullable=False)
     # default
     date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
     is_active = db.Column(db.Boolean, nullable=False, default=True)  
@@ -70,8 +68,6 @@ class File(db.Model):
     date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
     is_active = db.Column(db.Boolean, nullable=False, default=True)  
     type = db.Column(db.String(200), nullable=False, default="general")
-    # optional
-    description = db.Column(db.String(1000))
 
 # Add secret key
 app.config['SECRET_KEY'] = 'afs87fas7bfsa98fbasbas98fh78oizu'

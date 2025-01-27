@@ -1,0 +1,18 @@
+<h1>Neue Datei</h1>
+<form action="{{ url_for('create_file')}}" method="POST">
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>{{ form.name.label }}</td>
+            <td>{{ form.name(autocomplete="off") }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.type.label }}</td>
+            <td>{{ form.type(autocomplete="off") }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding-top: 2rem;">{{ form.submit(style="min-width:100%;") }}</td>
+        </tr>
+    </table>
+</form>

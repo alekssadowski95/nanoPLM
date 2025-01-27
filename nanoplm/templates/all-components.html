@@ -20,22 +20,20 @@
     <tr>
         <th>Name</th>
         <th>UUID</th>
-        <th>Erstellungsdatum</th>
-        <th>Beschreibung</th>
-        <th>Typ</th>
         <th>Nummer</th>
+        <th>Erstellungsdatum</th>
         <th>Status</th>
+        <th>Dateien</th>
         <th>Aktionen</th>
     </tr>
     {% for component in components %}
     <tr>
         <td><a href="{{ url_for('read_component', component_uuid = component.uuid) }}">{{ component.name }}</a></td>
         <td>{{ component.uuid }}</td>
-        <td>{{ component.date_created }}</td>
-        <td>{{ component.description }}</td>
-        <td>{{ component.type }}</td>
         <td>{{ component.component_number }}</td>
+        <td>{{ component.date_created }}</td>
         <td>{{ component.status }}</td>
+        <td>{{ component.files }}</td>
         <td>
             <a href="{{ url_for('update_component', component_uuid = component.uuid) }}">bearbeiten</a>
             <br>

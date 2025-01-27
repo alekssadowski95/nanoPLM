@@ -18,25 +18,22 @@
 <button onclick="showCreateComponentInstance()">Neue Instanz</button>
 <table>
     <tr>
-        <th>Name</th>
-        <th>Erstellungsdatum</th>
-        <th>Beschreibung</th>
-        <th>Typ</th>
         <th>Komponente</th>
+        <th>UUID</th>
         <th>Seriennummer</th>
+        <th>Erstellungsdatum</th>
         <th>Kunde</th>
         <th>Aktionen</th>
     </tr>
     {% for component_instance in component_instances %}
     <tr>
-        <td><a href="{{ url_for('read_component_instance', component_instance_uuid = component_instance.uuid) }}">{{ component_instance.name }}</a></td>
-        <td>{{ component_instance.date_created }}</td>
-        <td>{{ component_instance.description }}</td>
-        <td>{{ component_instance.type }}</td>
         <td>{{ component_instance.component }}</td>
-        <td>{{ component_instance.serial_number }}</td>
-        <td>{{ component_instance.files }}</td>
+        <td>{{ component_instance.uuid }}</td>
+        <td><a href="{{ url_for('read_component_instance', component_instance_uuid = component_instance.uuid) }}">{{ component_instance.serial_number }}</a></td>
+        <td>{{ component_instance.component }}</td>
+        <td>{{ component_instance.date_created }}</td>
         <td>{{ component_instance.client }}</td>
+        <td>{{ component_instance.files }}</td>
         <td>
             <a href="{{ url_for('update_component_instance', component_instance_uuid = component_instance.uuid) }}">bearbeiten</a>
             <br>

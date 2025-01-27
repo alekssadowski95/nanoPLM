@@ -19,12 +19,17 @@ class CreateProductForm(FlaskForm):
 class CreateComponentForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=1, max=200)])
     description = StringField('Beschreibung', validators=[DataRequired(), Length(min=1, max=1000)])
-    type = StringField('Typ', validators=[DataRequired(), Length(min=1, max=200)])
     submit = SubmitField('Erstellen')
 
 class CreateComponentInstanceForm(FlaskForm):
+    component = StringField('Komponente', validators=[DataRequired(), Length(min=1, max=200)])
+    submit = SubmitField('Erstellen')
+
+class CreateClientForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=1, max=200)])
-    component = StringField('Komponente', validators=[DataRequired(), Length(min=1, max=100)])
-    files = StringField('Dateien', validators=[DataRequired(), Length(min=1, max=100)])
-    client = StringField('Kunde', validators=[DataRequired(), Length(min=1, max=100)])
+    submit = SubmitField('Erstellen')
+
+class CreateFileForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired(), Length(min=1, max=200)])
+    type = StringField('Typ', validators=[DataRequired(), Length(min=1, max=200)])
     submit = SubmitField('Erstellen')

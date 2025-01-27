@@ -2,8 +2,8 @@ import json
 
 from flask import render_template, url_for, redirect
 
-from nanoplm import app, db, Component, Instance
-from .forms import CreateComponentForm, CreateComponentInstanceForm
+from nanoplm import app, db, Component, Instance, Client, File
+from .forms import CreateComponentForm, CreateComponentInstanceForm, CreateClientForm, CreateFileForm
 from .sample import products
 
 
@@ -42,7 +42,6 @@ def create_component():
             uuid = generate_uuid(), 
             name = form.name.data, 
             description = form.description.data,
-            type = form.type.data,
             status = 'draft',
             component_number = "ABC-00001"
             )
@@ -63,7 +62,6 @@ def update_component(component_uuid):
     if form.validate_on_submit():
         target_component.name = form.name.data
         target_component.description = form.description.data
-        target_component.type = form.type.data
         db.session.commit()
         return redirect(url_for('all_components'))
     return render_template('update-component.html', component = target_component, form = form) 
@@ -89,9 +87,8 @@ def create_component_instance():
     if form.validate_on_submit():
         new_component_instance = Instance(
             uuid = generate_uuid(), 
-            name = form.name.data, 
-            description = form.description.data,
-            type = form.type.data,
+            serial_number = "1000001",
+            component = form.component.data
             )
         db.session.add(new_component_instance)
         db.session.commit()
@@ -115,11 +112,21 @@ CRUD for clients
 '''
 @app.route('/all-clients')
 def all_clients():
-    return render_template('all-clients.html') 
+    clients = Client.query.filter_by(is_active = True).limit(1000).all()
+    return render_template('all-clients.html', clients = clients) 
 
-@app.route('/create-client')
+@app.route('/create-client', methods=['GET', 'POST'])
 def create_client():
-    return render_template('create-client.html', methods=['GET', 'POST']) 
+    form = CreateClientForm()
+    if form.validate_on_submit():
+        new_client = Client(
+            uuid = generate_uuid(), 
+            name = form.name.data
+            )
+        db.session.add(new_client)
+        db.session.commit()
+        return redirect(url_for('all_clients'))
+    return render_template('create-client.html', form = form) 
 
 @app.route('/read-client/<client_uuid>')
 def read_client(client_uuid):
@@ -127,22 +134,33 @@ def read_client(client_uuid):
 
 @app.route('/update-client/<client_uuid>', methods=['GET', 'POST'])
 def update_client(client_uuid):
-    return render_template(redirect(url_for('read_client'))) 
+    return redirect(url_for('read_client'))
 
-@app.route('/delete-client/<file_uuid>', methods=['GET', 'POST'])
+@app.route('/delete-client/<client_uuid>', methods=['GET', 'POST'])
 def delete_client(client_uuid):
-    return render_template(redirect(url_for('home'))) 
+    return redirect(url_for('home'))
 
 '''
 CRUD for files
 '''
 @app.route('/all-files')
 def all_files():
-    return render_template('all-files.html') 
+    files = File.query.filter_by(is_active = True).limit(1000).all()
+    return render_template('all-files.html', files = files) 
 
 @app.route('/create-file', methods=['GET', 'POST'])
 def create_file():
-    return render_template('create-file.html') 
+    form = CreateFileForm()
+    if form.validate_on_submit():
+        new_file = File(
+            uuid = generate_uuid(), 
+            name = form.name.data,
+            type = form.type.data
+            )
+        db.session.add(new_file)
+        db.session.commit()
+        return redirect(url_for('all_files'))
+    return render_template('create-file.html', form = form) 
 
 @app.route('/read-file/<file_uuid>')
 def read_file(file_uuid):
