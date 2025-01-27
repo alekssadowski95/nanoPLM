@@ -47,9 +47,9 @@ Open source PLM solution for small machine manufacturers - natively supports Fre
 
 
 ## Contact
-ALSADO Inh. Aleksander Sadowski
-Liebfrauenstraße 31
-53757 Sankt Augustin
-Germany
-Email: [info@alsado.det](mailto:info@alsado.de)
-Website: [www.alsado.de](www.alsado.de)
+ALSADO Inh. Aleksander Sadowski<br>
+Liebfrauenstraße 31<br>
+53757 Sankt Augustin<br>
+Germany<br>
+Email: [info@alsado.det](mailto:info@alsado.de)<br>
+Website: [www.alsado.de](www.alsado.de)<br>
