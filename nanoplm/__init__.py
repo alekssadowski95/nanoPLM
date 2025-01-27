@@ -45,8 +45,9 @@ class Instance(db.Model):
     date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
     is_active = db.Column(db.Boolean, nullable=False, default=True)  
     # optional
-    files = db.Column(db.String(200))
     client = db.Column(db.String(200))
+    files = db.Column(db.String(200))
+    
 
 class Client(db.Model):
     # required
