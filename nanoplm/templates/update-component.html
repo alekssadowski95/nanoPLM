@@ -1,33 +1,40 @@
-<style>
-    td {
-        padding-right: 0.6rem;
-    }
-</style>
+{% extends "base-mainview.html"%}
 
-<h1>{{ component.name }}</h1>
+{% block style %}{% endblock style %}
+
+{% block content %}
+<h1 class="mb-5">'{{ component.name }}' Komponente bearbeiten</h1>
 <form action="{{ url_for('update_component', component_uuid = component.uuid)}}" method="POST">
     {{ form.csrf_token }}
-
     <table>
         <tr>
-            <td>{{ form.name.label }}</td>
-            <td>{{ form.name(value = component.name) }}</td>
+            <td>UUID</td>
+            <td>{{ component.uuid }}</td>
         </tr>
         <tr>
-            <td>{{ form.description.label }}</td>
-            <td>{{ form.description(value = component.description) }}</td>
+            <td>{{ form.name.label(style="padding-right: 10px;") }}</td>
+            <td>{{ form.name(autocomplete="off", value=component.name) }}</td>
         </tr>
         <tr>
-            <td>{{ form.type.label }}</td>
-            <td>{{ form.type(value=component.type) }}</td>
+            <td>{{ form.description.label(style="padding-right: 10px;") }}</td>
+            <td>{{ form.description(autocomplete="off", value=component.description) }}</td>
+        </tr>
+        <tr>
+            <td>Nummer</td>
+            <td>{{ component.component_number }}</td>
         </tr>
         <tr>
             <td>Status</td>
             <td>{{ component.status }}</td>
         </tr>
         <tr>
+            <td>Erstellungsdatum</td>
+            <td>{{ component.date_created }}</td>
+        </tr>
+        <tr>
             <td></td>
-            <td style="padding-top: 2rem;">{{ form.submit(style = "min-width:100%;", value = "Aktualisieren") }}</td>
+            <td style="padding-top: 2rem;">{{ form.submit(style="min-width:100%;", value="Aktualisieren") }}</td>
         </tr>
     </table>
 </form>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends "base-mainview.html"%}
+
+{% block style %}{% endblock style %}
+
+{% block content %}
+<a type="button" class="btn btn-outline-dark mb-3" href="{{ url_for('all_files') }}">< Alle Dateien</a> 
+<h1 class="mb-3">{{ file.name }}</h1>
+<div class="mb-2">
+    <nobr>
+        <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_file', file_uuid = file.uuid) }}"><i class="bi-pencil" style="padding-right: 6px;"></i>Bearbeiten</a>
+        <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_file', file_uuid = file.uuid) }}"><i class="bi-x-lg" style="padding-right: 6px;"></i>Löschen</a>
+    </nobr>
+</div>
+<table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
+    <tbody>
+        <tr>
+            <td>UUID</td>
+            <td>{{ file.uuid }}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ file.name }}</td>
+        </tr>
+        <tr>
+            <td>Erstellungsdatum</td>
+            <td>{{ file.date_created }}</td>
+        </tr>
+    </tbody>
+</table>   
+{% endblock content %}

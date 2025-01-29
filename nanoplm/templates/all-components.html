@@ -10,6 +10,7 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Beschreibung</th>
             <th>UUID</th>
             <th>Nummer</th>
             <th>Erstellungsdatum</th>
@@ -22,6 +23,7 @@
         {% for component in components %}
         <tr>
             <td><a href="{{ url_for('read_component', component_uuid = component.uuid) }}">{{ component.name }}</a></td>
+            <td>{{ component.description }}</td>
             <td>{{ component.uuid }}</td>
             <td>{{ component.component_number }}</td>
             <td>{{ component.date_created }}</td>

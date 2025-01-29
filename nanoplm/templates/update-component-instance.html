@@ -1,0 +1,32 @@
+{% extends "base-mainview.html"%}
+
+{% block style %}{% endblock style %}
+
+{% block content %}
+<h1 class="mb-5">'{{ component_instance.component }}: {{ component_instance.serial_number }}' Instanz bearbeiten</h1>
+<form action="{{ url_for('update_component_instance', component_instance_uuid = component_instance.uuid)}}" method="POST">
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>UUID</td>
+            <td>{{ component_instance.uuid }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.component.label(style="padding-right: 10px;") }}</td>
+            <td>{{ form.component(autocomplete="off", value=component_instance.component) }}</td>
+        </tr>
+        <tr>
+            <td>Seriennummer</td>
+            <td>{{ component_instance.serial_number }}</td>
+        </tr>
+        <tr>
+            <td>Erstellungsdatum</td>
+            <td>{{ component_instance.date_created }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding-top: 2rem;">{{ form.submit(style="min-width:100%;", value="Aktualisieren") }}</td>
+        </tr>
+    </table>
+</form>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "base-mainview.html"%}
+
+{% block style %}{% endblock style %}
+
+{% block content %}
+<h1 class="mb-5">'{{ file.name }}' Datei bearbeiten</h1>
+<form action="{{ url_for('update_file', file_uuid = file.uuid)}}" method="POST">
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>UUID</td>
+            <td>{{ file.uuid }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.name.label(style="padding-right: 10px;") }}</td>
+            <td>{{ form.name(autocomplete="off", value=component.name) }}</td>
+        </tr>
+        <tr>
+            <td>Erstellungsdatum</td>
+            <td>{{ component.date_created }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding-top: 2rem;">{{ form.submit(style="min-width:100%;", value="Aktualisieren") }}</td>
+        </tr>
+    </table>
+</form>
+{% endblock content %}

@@ -97,11 +97,18 @@ def create_component_instance():
 
 @app.route('/component-instance/<component_instance_uuid>')
 def read_component_instance(component_instance_uuid):
-    return render_template('read-component-instance.html') 
+    target_component_instance = Instance.query.filter_by(uuid = component_instance_uuid).first()
+    return render_template('read-component-instance.html', component_instance = target_component_instance) 
 
 @app.route('/update-component-instance/<component_instance_uuid>', methods=['GET', 'POST'])
 def update_component_instance(component_instance_uuid):
-    return render_template(redirect(url_for('read_component_instance'))) 
+    target_component_instance = Instance.query.filter_by(uuid = component_instance_uuid).first()
+    form = CreateComponentInstanceForm()
+    if form.validate_on_submit():
+        target_component_instance.component = form.component.data
+        db.session.commit()
+        return redirect(url_for('all_component_instances'))
+    return render_template('update-component-instance.html', form = form, component_instance = target_component_instance)
 
 @app.route('/delete-component-instance/<component_instance_uuid>', methods=['GET', 'POST'])
 def delete_component_instance(component_instance_uuid):
@@ -133,7 +140,8 @@ def create_client():
 
 @app.route('/read-client/<client_uuid>')
 def read_client(client_uuid):
-    return render_template('read-client.html') 
+    target_client = Client.query.filter_by(uuid = client_uuid).first()
+    return render_template('read-client.html', client = target_client) 
 
 @app.route('/update-client/<client_uuid>', methods=['GET', 'POST'])
 def update_client(client_uuid):
@@ -169,7 +177,8 @@ def create_file():
 
 @app.route('/read-file/<file_uuid>')
 def read_file(file_uuid):
-    return render_template('read-file.html') 
+    target_file = File.query.filter_by(uuid = file_uuid).first()
+    return render_template('read-file.html', file = target_file) 
 
 @app.route('/update-file/<file_uuid>', methods=['GET', 'POST'])
 def update_file(file_uuid):
