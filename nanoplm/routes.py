@@ -36,12 +36,26 @@ def all_components():
 def create_component():
     form = CreateComponentForm()
     if form.validate_on_submit():
+        components = Component.query.filter_by().all()
+        component_numbers = [component.component_number for component in components]
+        component_numbers_temp = []
+        for component_number in component_numbers:
+            if component_number.startswith(form.component_number.data):
+                component_numbers_temp.append(component_number)
+        component_numbers_temp_no = []
+        for component_number in component_numbers_temp:
+            component_numbers_temp_no.append(int(component_number.split(".")[-1]))
+
+        minor_number = "." + "1"
+        if len(component_numbers_temp_no) > 0:
+            minor_number = "." + str(max(component_numbers_temp_no) + 1)
+
         new_component = Component(
             uuid = generate_uuid(), 
             name = form.name.data, 
             description = form.description.data,
             status = 'draft',
-            component_number = "ABC-00001"
+            component_number = form.component_number.data + minor_number
             )
         db.session.add(new_component)
         db.session.commit()
@@ -116,7 +130,7 @@ def create_component_instance():
 @app.route('/component-instance/<component_instance_uuid>')
 def read_component_instance(component_instance_uuid):
     target_component_instance = Instance.query.filter_by(uuid = component_instance_uuid).first()
-    return render_template('read-component-instance.html', component_instance = target_component_instance) 
+    return render_template('read-component-instance.html', component_instance = target_component_instance, len = len) 
 
 """
 Updating Instances does not make sense. So will not be used

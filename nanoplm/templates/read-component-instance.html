@@ -5,7 +5,7 @@
 {% block content %}
 <a type="button" class="btn btn-outline-dark mb-3" href="{{ url_for('all_component_instances') }}">< Alle Instanzen</a> 
 <p>Instanz</p>
-<h1 class="mb-3">{{ component_instance.component }}: {{ component_instance.serial_number }}</h1>
+<h1 class="mb-3">{{ component_instance.component }}#{{ component_instance.serial_number }}</h1>
 <div class="mb-2">
     <nobr>
         <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('read_component', component_uuid = component_instance.component) }}"><i class="bi-eye" style="padding-right: 6px;"></i>Komponente öffnen</a>

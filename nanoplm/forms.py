@@ -6,6 +6,9 @@ from wtforms.validators import DataRequired, Length
 class CreateComponentForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=1, max=200)])
     description = StringField('Beschreibung', validators=[DataRequired(), Length(min=1, max=1000)])
+    component_number = SelectField('Nummernkreis', choices = [("10.10.10", "10.10.10 (Sicherheitsschraube - VPE)"),
+                                                              ("10.10.20", "10.10.20 (Sicherheitsschraube - Schraube)"),
+                                                              ("10.10.30", "10.10.30 (Sicherheitsschraube - Einwegeinsatz)")])
     submit = SubmitField('Erstellen')
 
 class CreateComponentInstanceForm(FlaskForm):
