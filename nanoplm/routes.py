@@ -80,7 +80,7 @@ def all_component_instances():
     return render_template('all-component-instances.html', component_instances = component_instances, len = len) 
 
 @app.route('/create-component-instance', methods=['GET', 'POST'])
-def create_component_instance(component_uuid = None):
+def create_component_instance():
     target_component_uuid = request.args.get('component_uuid')
     form = CreateComponentInstanceForm()
     if form.validate_on_submit():
