@@ -88,7 +88,8 @@ def create_component_instance():
         new_component_instance = Instance(
             uuid = generate_uuid(), 
             serial_number = "1000001",
-            component = form.component.data
+            component = form.component.data,
+            client = form.client.data
             )
         db.session.add(new_component_instance)
         db.session.commit()
@@ -106,6 +107,7 @@ def update_component_instance(component_instance_uuid):
     form = CreateComponentInstanceForm()
     if form.validate_on_submit():
         target_component_instance.component = form.component.data
+        target_component_instance.client = form.client.data
         db.session.commit()
         return redirect(url_for('all_component_instances'))
     return render_template('update-component-instance.html', form = form, component_instance = target_component_instance)

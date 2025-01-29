@@ -10,8 +10,8 @@
     <thead>
         <tr>
             <th>Komponente</th>
-            <th>UUID</th>
             <th>Seriennummer</th>
+            <th>UUID</th>
             <th>Erstellungsdatum</th>
             <th>Kunde</th>
             <th>Aktionen</th>
@@ -21,8 +21,8 @@
     {% for component_instance in component_instances %}
     <tr>
         <td>{{ component_instance.component }}</td>
-        <td>{{ component_instance.uuid }}</td>
         <td><a href="{{ url_for('read_component_instance', component_instance_uuid = component_instance.uuid) }}">{{ component_instance.serial_number }}</a></td>
+        <td>{{ component_instance.uuid }}</td>
         <td>{{ component_instance.date_created }}</td>
         <td>{{ component_instance.client }}</td>
         <td>

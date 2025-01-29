@@ -10,6 +10,7 @@ class CreateComponentForm(FlaskForm):
 
 class CreateComponentInstanceForm(FlaskForm):
     component = StringField('Komponente', validators=[DataRequired(), Length(min=1, max=200)])
+    client = StringField('Kunde', validators=[DataRequired(), Length(min=1, max=200)])
     submit = SubmitField('Erstellen')
 
 class CreateClientForm(FlaskForm):

@@ -16,6 +16,10 @@
             <td>{{ form.component(autocomplete="off", value=component_instance.component) }}</td>
         </tr>
         <tr>
+            <td>{{ form.client.label(style="padding-right: 10px;") }}</td>
+            <td>{{ form.client(autocomplete="off", value=component_instance.client) }}</td>
+        </tr>
+        <tr>
             <td>Seriennummer</td>
             <td>{{ component_instance.serial_number }}</td>
         </tr>
