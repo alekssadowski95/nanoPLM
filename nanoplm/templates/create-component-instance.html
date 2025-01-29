@@ -8,12 +8,12 @@
     {{ form.csrf_token }}
     <table>
         <tr>
-            <td>{{ form.component.label(style="padding-right: 10px;") }}</td>
-            <td>{{ form.component(autocomplete="off", value=component_uuid) }}</td>
+            <td>{{ form.client_uuid.label(style="padding-right: 10px;") }}</td>
+            <td>{{ form.client_uuid }}</td>
         </tr>
         <tr>
-            <td>{{ form.client.label(style="padding-right: 10px;") }}</td>
-            <td>{{ form.client(autocomplete="off") }}</td>
+            <td>{{ form.component_uuid.label(style="padding-right: 10px;") }}</td>
+            <td>{{ form.component_uuid }}</td>
         </tr>
         <tr>
             <td></td>

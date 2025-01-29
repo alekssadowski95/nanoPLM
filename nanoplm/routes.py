@@ -82,18 +82,35 @@ def all_component_instances():
 @app.route('/create-component-instance', methods=['GET', 'POST'])
 def create_component_instance():
     target_component_uuid = request.args.get('component_uuid')
+    target_client_uuid = request.args.get('client_uuid')
+
     form = CreateComponentInstanceForm()
+
+    if target_component_uuid != None:
+        target_component = Component.query.filter_by(uuid = target_component_uuid).first()
+        form.component_uuid.choices = [(target_component.uuid, target_component.name)]
+    else:
+        components = Component.query.filter_by(is_active = True).limit(1000).all()
+        form.component_uuid.choices = [(component.uuid, component.name) for component in components]
+    
+    if target_client_uuid != None:
+        target_client = Client.query.filter_by(uuid = target_client_uuid).first()
+        form.client_uuid.choices = [(target_client.uuid, target_client.name)]
+    else:
+        clients = Client.query.filter_by(is_active = True).limit(1000).all()
+        form.client_uuid.choices = [(client.uuid, client.name) for client in clients]
+
     if form.validate_on_submit():
         new_component_instance = Instance(
             uuid = generate_uuid(), 
             serial_number = "1000001",
-            component = form.component.data,
-            client = form.client.data
+            component = form.component_uuid.data,
+            client = form.client_uuid.data
             )
         db.session.add(new_component_instance)
         db.session.commit()
         return redirect(url_for('all_component_instances'))
-    return render_template('create-component-instance.html', form = form, component_uuid = target_component_uuid) 
+    return render_template('create-component-instance.html', form = form) 
 
 @app.route('/component-instance/<component_instance_uuid>')
 def read_component_instance(component_instance_uuid):

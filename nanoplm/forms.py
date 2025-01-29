@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import StringField, TextAreaField, RadioField, SubmitField
+from wtforms.fields import StringField, TextAreaField, RadioField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length
 
 
@@ -9,8 +9,8 @@ class CreateComponentForm(FlaskForm):
     submit = SubmitField('Erstellen')
 
 class CreateComponentInstanceForm(FlaskForm):
-    component = StringField('Komponente', validators=[DataRequired(), Length(min=1, max=200)])
-    client = StringField('Kunde', validators=[DataRequired(), Length(min=1, max=200)])
+    component_uuid = SelectField('Komponente')
+    client_uuid = SelectField('Kunde')
     submit = SubmitField('Erstellen')
 
 class CreateClientForm(FlaskForm):
