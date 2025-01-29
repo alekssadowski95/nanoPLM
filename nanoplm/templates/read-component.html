@@ -1,46 +1,42 @@
-<style>
-    table, th, td {
-      border: 1px solid black;
-    }
-    
-    th, td {
-        padding-right: 0.6rem;
-    }
-</style>
+{% extends "base-mainview.html"%}
 
-<h1>{{ component.name }}</h1>
-<table style="margin-bottom: 1rem;" >
-    <tr>
-        <td>UUID</td>
-        <td>{{ component.uuid }}</td>
-    </tr>
-    <tr>
-        <td>Name</td>
-        <td>{{ component.name }}</td>
-    </tr>
-    <tr>
-        <td>Beschreibung</td>
-        <td>{{ component.description }}</td>
-    </tr>
-    <tr>
-        <td>Typ</td>
-        <td>{{ component.type }}</td>
-    </tr>
-    <tr>
-        <td>Nummer</td>
-        <td>{{ component.component_number }}</td>
-    </tr>
-    <tr>
-        <td>Status</td>
-        <td>{{ component.status }}</td>
-    </tr>
-    <tr>
-        <td>Aktionen</td>
-        <td>
-            <a href="{{ url_for('update_component', component_uuid = component.uuid) }}">bearbeiten</a>
-            <br>
-            <a href="{{ url_for('delete_component', component_uuid = component.uuid) }}">entfernen</a>
-        </td>
-    </tr>
+{% block style %}{% endblock style %}
+
+{% block content %}
+<a type="button" class="btn btn-outline-dark mb-3" href="{{ url_for('all_components') }}">< Alle Komponenten</a> 
+<h1 class="mb-3">{{ component.name }}</h1>
+<div class="mb-2">
+    <nobr>
+        <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_component', component_uuid = component.uuid) }}"><i class="bi-pencil" style="padding-right: 6px;"></i>Bearbeiten</a>
+        <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_component', component_uuid = component.uuid) }}"><i class="bi-x-lg" style="padding-right: 6px;"></i>Löschen</a>
+    </nobr>
+</div>
+<table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
+    <tbody>
+        <tr>
+            <td>UUID</td>
+            <td>{{ component.uuid }}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ component.name }}</td>
+        </tr>
+        <tr>
+            <td>Beschreibung</td>
+            <td>{{ component.description }}</td>
+        </tr>
+        <tr>
+            <td>Typ</td>
+            <td>{{ component.type }}</td>
+        </tr>
+        <tr>
+            <td>Nummer</td>
+            <td>{{ component.component_number }}</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>{{ component.status }}</td>
+        </tr>
+    </tbody>
 </table>   
-<a href="{{ url_for('all_components') }}">< Zurück</a> 
+{% endblock content %}

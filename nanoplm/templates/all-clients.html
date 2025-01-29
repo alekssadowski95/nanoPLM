@@ -1,42 +1,40 @@
-<style>
-    table, th, td {
-      border: 1px solid black;
-      margin-top: 1rem;
-    }
-    
-    td {
-        padding-right: 0.6rem;
-    }
-    
-    th {
-        padding-left: 0.6rem;
-        padding-right: 0.6rem;
-    }
-</style>
-<h1>Alle Kunden</h1>
-<button onclick="showCreateClient()">Neuer Kunde</button>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>UUID</th>
-        <th>Erstellungsdatum</th>
-        <th>Aktionen</th>
-    </tr>
-    {% for client in clients %}
-    <tr>
-        <td><a href="{{ url_for('read_client', client_uuid = client.uuid) }}">{{ client.name }}</a></td>
-        <td>{{ client.uuid }}</td>
-        <td>{{ client.date_created }}</td>
-        <td>
-            <a href="{{ url_for('update_client', client_uuid = client.uuid) }}">bearbeiten</a>
-            <br>
-            <a href="{{ url_for('delete_client', client_uuid = client.uuid) }}">entfernen</a>
-        </td>
-    </tr>
-    {% endfor %}
+{% extends "base-mainview.html"%}
+
+{% block style %}{% endblock style %}
+
+{% block content %}
+<h1 class="mb-5">Alle Kunden</h1>
+<button type="button" class="btn btn-outline-dark mb-3" onclick="showCreateClient()"><i class="bi-plus-lg" style="padding-right: 6px;"></i>Neuer Kunde</button>
+<p class="mb-2">Es wurden {{ len(clients) }} Kunden gefunden.</p>
+<table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>UUID</th>
+            <th>Erstellungsdatum</th>
+            <th>Aktionen</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for client in clients %}
+        <tr>
+            <td><a href="{{ url_for('read_client', client_uuid = client.uuid) }}">{{ client.name }}</a></td>
+            <td>{{ client.uuid }}</td>
+            <td>{{ client.date_created }}</td>
+            <td>
+                <nobr>
+                    <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('read_client', client_uuid = client.uuid) }}"><i class="bi-eye"></i></a>
+                    <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_client', client_uuid = client.uuid) }}"><i class="bi-pencil"></i></a>
+                    <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_client', client_uuid = client.uuid) }}"><i class="bi-x-lg"></i></a>
+                </nobr>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 <script>
     function showCreateClient(){
         window.top.document.getElementById("main-view-iframe").src = "{{ url_for('create_client') }}";
     }
 </script>
+{% endblock content %}

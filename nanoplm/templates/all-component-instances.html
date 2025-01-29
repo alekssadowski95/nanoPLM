@@ -1,49 +1,44 @@
-<style>
-    table, th, td {
-      border: 1px solid black;
-      margin-top: 1rem;
-    }
-    
-    td {
-        padding-right: 0.6rem;
-    }
-    
-    th {
-        padding-left: 0.6rem;
-        padding-right: 0.6rem;
-    }
-</style>
-    
-<h1>Alle Instanzen</h1>
-<button onclick="showCreateComponentInstance()">Neue Instanz</button>
-<table>
-    <tr>
-        <th>Komponente</th>
-        <th>UUID</th>
-        <th>Seriennummer</th>
-        <th>Erstellungsdatum</th>
-        <th>Kunde</th>
-        <th>Aktionen</th>
-    </tr>
+{% extends "base-mainview.html"%}
+
+{% block style %}{% endblock style %}
+
+{% block content %}
+<h1 class="mb-5">Alle Instanzen</h1>
+<button type="button" class="btn btn-outline-dark mb-3" onclick="showCreateComponentInstance()"><i class="bi-plus-lg" style="padding-right: 6px;"></i>Neue Instanz</button>
+<p class="mb-2">Es wurden {{ len(component_instances) }} Instanzen gefunden.</p>
+<table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
+    <thead>
+        <tr>
+            <th>Komponente</th>
+            <th>UUID</th>
+            <th>Seriennummer</th>
+            <th>Erstellungsdatum</th>
+            <th>Kunde</th>
+            <th>Aktionen</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for component_instance in component_instances %}
     <tr>
         <td>{{ component_instance.component }}</td>
         <td>{{ component_instance.uuid }}</td>
         <td><a href="{{ url_for('read_component_instance', component_instance_uuid = component_instance.uuid) }}">{{ component_instance.serial_number }}</a></td>
-        <td>{{ component_instance.component }}</td>
         <td>{{ component_instance.date_created }}</td>
         <td>{{ component_instance.client }}</td>
-        <td>{{ component_instance.files }}</td>
         <td>
-            <a href="{{ url_for('update_component_instance', component_instance_uuid = component_instance.uuid) }}">bearbeiten</a>
-            <br>
-            <a href="{{ url_for('delete_component_instance', component_instance_uuid = component_instance.uuid) }}">entfernen</a>
+            <nobr>
+                <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('read_component_instance', component_instance_uuid = component_instance.uuid) }}"><i class="bi-eye"></i></a>
+                <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_component_instance', component_instance_uuid = component_instance.uuid) }}"><i class="bi-pencil"></i></a>
+                <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_component_instance', component_instance_uuid = component_instance.uuid) }}"><i class="bi-x-lg"></i></a>
+            </nobr>
         </td>
     </tr>
     {% endfor %}
+    </tbody>
 </table>
 <script>
     function showCreateComponentInstance(){
         window.top.document.getElementById("main-view-iframe").src = "{{ url_for('create_component_instance') }}";
     }
 </script>
+{% endblock content %}

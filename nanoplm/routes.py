@@ -79,7 +79,7 @@ CRUD for component instances
 @app.route('/all-component-instances')
 def all_component_instances():
     component_instances = Instance.query.filter_by(is_active = True).limit(1000).all()
-    return render_template('all-component-instances.html', component_instances = component_instances) 
+    return render_template('all-component-instances.html', component_instances = component_instances, len = len) 
 
 @app.route('/create-component-instance', methods=['GET', 'POST'])
 def create_component_instance():
@@ -116,7 +116,7 @@ CRUD for clients
 @app.route('/all-clients')
 def all_clients():
     clients = Client.query.filter_by(is_active = True).limit(1000).all()
-    return render_template('all-clients.html', clients = clients) 
+    return render_template('all-clients.html', clients = clients, len = len) 
 
 @app.route('/create-client', methods=['GET', 'POST'])
 def create_client():
@@ -141,7 +141,7 @@ def update_client(client_uuid):
 
 @app.route('/delete-client/<client_uuid>', methods=['GET', 'POST'])
 def delete_client(client_uuid):
-    target_client = Instance.query.filter_by(uuid = client_uuid).first()
+    target_client = Client.query.filter_by(uuid = client_uuid).first()
     target_client.is_active = False
     db.session.commit()
     return redirect(url_for('all_clients'))
@@ -152,7 +152,7 @@ CRUD for files
 @app.route('/all-files')
 def all_files():
     files = File.query.filter_by(is_active = True).limit(1000).all()
-    return render_template('all-files.html', files = files) 
+    return render_template('all-files.html', files = files, len = len) 
 
 @app.route('/create-file', methods=['GET', 'POST'])
 def create_file():
@@ -160,8 +160,7 @@ def create_file():
     if form.validate_on_submit():
         new_file = File(
             uuid = generate_uuid(), 
-            name = form.name.data,
-            type = form.type.data
+            name = form.name.data
             )
         db.session.add(new_file)
         db.session.commit()
@@ -178,10 +177,10 @@ def update_file(file_uuid):
 
 @app.route('/delete-file/<file_uuid>', methods=['GET', 'POST'])
 def delete_file(file_uuid):
-    target_file = Instance.query.filter_by(uuid = file_uuid).first()
+    target_file = File.query.filter_by(uuid = file_uuid).first()
     target_file.is_active = False
     db.session.commit()
-    return render_template(redirect(url_for('a_files'))) 
+    return redirect(url_for('all_files'))
 
 '''
 Module help

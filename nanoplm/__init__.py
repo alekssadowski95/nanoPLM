@@ -46,8 +46,7 @@ class Instance(db.Model):
     is_active = db.Column(db.Boolean, nullable=False, default=True)  
     # optional
     client = db.Column(db.String(200))
-    files = db.Column(db.String(200))
-    
+    files = db.Column(db.String(200))    
 
 class Client(db.Model):
     # required
@@ -68,7 +67,7 @@ class File(db.Model):
     # default
     date_created = db.Column(db.DateTime, nullable= False, default=datetime.now)
     is_active = db.Column(db.Boolean, nullable=False, default=True)  
-    type = db.Column(db.String(200), nullable=False, default="general")
+
 
 # Add secret key
 app.config['SECRET_KEY'] = 'afs87fas7bfsa98fbasbas98fh78oizu'
