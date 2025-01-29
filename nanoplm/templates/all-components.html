@@ -31,7 +31,7 @@
             <td>{{ component.files }}</td>
             <td>
                 <nobr>
-                    <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('read_component', component_uuid = component.uuid) }}"><i class="bi-eye"></i></a>
+                    <a class="btn btn-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('read_component', component_uuid = component.uuid) }}"><i class="bi-eye"></i></a>
                     <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_component', component_uuid = component.uuid) }}"><i class="bi-pencil"></i></a>
                     <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_component', component_uuid = component.uuid) }}"><i class="bi-x-lg"></i></a>
                 </nobr>
