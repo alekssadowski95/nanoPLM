@@ -147,7 +147,13 @@ def read_client(client_uuid):
 
 @app.route('/update-client/<client_uuid>', methods=['GET', 'POST'])
 def update_client(client_uuid):
-    return redirect(url_for('read_client'))
+    target_client = Client.query.filter_by(uuid = client_uuid).first()
+    form = CreateClientForm()
+    if form.validate_on_submit():
+        target_client.name = form.name.data
+        db.session.commit()
+        return redirect(url_for('all_clients'))
+    return render_template('update-client.html', form = form, client = target_client)
 
 @app.route('/delete-client/<client_uuid>', methods=['GET', 'POST'])
 def delete_client(client_uuid):
@@ -184,7 +190,13 @@ def read_file(file_uuid):
 
 @app.route('/update-file/<file_uuid>', methods=['GET', 'POST'])
 def update_file(file_uuid):
-    return render_template(redirect(url_for('read_file'))) 
+    target_file = File.query.filter_by(uuid = file_uuid).first()
+    form = CreateFileForm()
+    if form.validate_on_submit():
+        target_file.name = form.name.data
+        db.session.commit()
+        return redirect(url_for('all_files'))
+    return render_template('update-file.html', form = form, file = target_file) 
 
 @app.route('/delete-file/<file_uuid>', methods=['GET', 'POST'])
 def delete_file(file_uuid):

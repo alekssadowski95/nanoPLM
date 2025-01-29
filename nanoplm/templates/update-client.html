@@ -3,33 +3,21 @@
 {% block style %}{% endblock style %}
 
 {% block content %}
-<h1 class="mb-5">'{{ component.name }}' Komponente bearbeiten</h1>
+<h1 class="mb-5">'{{ client.name }}' Kunde bearbeiten</h1>
 <form action="{{ url_for('update_client', client_uuid = client.uuid)}}" method="POST">
     {{ form.csrf_token }}
     <table>
         <tr>
             <td>UUID</td>
-            <td>{{ component.uuid }}</td>
+            <td>{{ client.uuid }}</td>
         </tr>
         <tr>
             <td>{{ form.name.label(style="padding-right: 10px;") }}</td>
-            <td>{{ form.name(autocomplete="off", value=component.name) }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.description.label(style="padding-right: 10px;") }}</td>
-            <td>{{ form.description(autocomplete="off", value=component.description) }}</td>
-        </tr>
-        <tr>
-            <td>Nummer</td>
-            <td>{{ component.component_number }}</td>
-        </tr>
-        <tr>
-            <td>Status</td>
-            <td>{{ component.status }}</td>
+            <td>{{ form.name(autocomplete="off", value=client.name) }}</td>
         </tr>
         <tr>
             <td>Erstellungsdatum</td>
-            <td>{{ component.date_created }}</td>
+            <td>{{ client.date_created }}</td>
         </tr>
         <tr>
             <td></td>
