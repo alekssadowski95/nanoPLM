@@ -14,9 +14,7 @@ def welcome():
 
 @app.route('/')
 def home():
-    if app.config['NANOPLM_FIRST_STARTUP'] == True:
-        return redirect(url_for('welcome'))
-    return render_template('home.html') 
+    return render_template('base.html')
 
 @app.route('/search/<search_query>')
 def search(search_query):
