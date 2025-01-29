@@ -52,9 +52,6 @@ def create_component():
 def read_component(component_uuid):
     target_component = Component.query.filter_by(uuid = component_uuid).first()
     component_instances = Instance.query.filter_by(is_active = True, component = component_uuid).limit(1000).all()
-    clients = []
-    for component_instance in component_instances:
-    client = Client.query.filter_by(is_active = True, component = component_uuid).limit(1000).all()
     return render_template('read-component.html', component = target_component, component_instances = component_instances, len = len) 
 
 @app.route('/update-component/<component_uuid>', methods=['GET', 'POST'])
