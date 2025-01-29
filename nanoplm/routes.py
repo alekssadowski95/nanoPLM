@@ -1,6 +1,6 @@
 import json
 
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, request
 
 from nanoplm import app, db, Component, Instance, Client, File
 from .forms import CreateComponentForm, CreateComponentInstanceForm, CreateClientForm, CreateFileForm
@@ -80,7 +80,8 @@ def all_component_instances():
     return render_template('all-component-instances.html', component_instances = component_instances, len = len) 
 
 @app.route('/create-component-instance', methods=['GET', 'POST'])
-def create_component_instance():
+def create_component_instance(component_uuid = None):
+    target_component_uuid = request.args.get('component_uuid')
     form = CreateComponentInstanceForm()
     if form.validate_on_submit():
         new_component_instance = Instance(
@@ -92,7 +93,7 @@ def create_component_instance():
         db.session.add(new_component_instance)
         db.session.commit()
         return redirect(url_for('all_component_instances'))
-    return render_template('create-component-instance.html', form = form) 
+    return render_template('create-component-instance.html', form = form, component_uuid = target_component_uuid) 
 
 @app.route('/component-instance/<component_instance_uuid>')
 def read_component_instance(component_instance_uuid):

@@ -18,7 +18,7 @@
     <tbody>
         {% for file in files %}
         <tr>
-            <td><a href="{{ url_for('read_file', file_uuid = file.uuid) }}">{{ file.name }}</a></td>
+            <td>{{ file.name }}</td>
             <td>{{ file.uuid }}</td>
             <td>{{ file.date_created }}</td>
             <td>

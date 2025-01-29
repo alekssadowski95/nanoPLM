@@ -18,7 +18,7 @@
     <tbody>
         {% for client in clients %}
         <tr>
-            <td><a href="{{ url_for('read_client', client_uuid = client.uuid) }}">{{ client.name }}</a></td>
+            <td>{{ client.name }}</td>
             <td>{{ client.uuid }}</td>
             <td>{{ client.date_created }}</td>
             <td>

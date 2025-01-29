@@ -22,7 +22,7 @@
       <tbody>
         {% for component in components %}
         <tr>
-            <td><a href="{{ url_for('read_component', component_uuid = component.uuid) }}">{{ component.name }}</a></td>
+            <td>{{ component.name }}</td>
             <td>{{ component.description }}</td>
             <td>{{ component.uuid }}</td>
             <td>{{ component.component_number }}</td>

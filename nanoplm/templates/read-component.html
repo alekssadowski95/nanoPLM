@@ -7,6 +7,7 @@
 <h1 class="mb-3">{{ component.name }}</h1>
 <div class="mb-2">
     <nobr>
+        <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('create_component_instance', component_uuid = component.uuid) }}"><i class="bi-plus-lg" style="padding-right: 6px;"></i>Instanz hinzufügen</a>
         <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_component', component_uuid = component.uuid) }}"><i class="bi-pencil" style="padding-right: 6px;"></i>Bearbeiten</a>
         <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_component', component_uuid = component.uuid) }}"><i class="bi-x-lg" style="padding-right: 6px;"></i>Löschen</a>
     </nobr>
