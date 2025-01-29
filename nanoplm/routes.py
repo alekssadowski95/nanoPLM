@@ -51,7 +51,11 @@ def create_component():
 @app.route('/read-component/<component_uuid>')
 def read_component(component_uuid):
     target_component = Component.query.filter_by(uuid = component_uuid).first()
-    return render_template('read-component.html', component = target_component) 
+    component_instances = Instance.query.filter_by(is_active = True, component = component_uuid).limit(1000).all()
+    clients = []
+    for component_instance in component_instances:
+    client = Client.query.filter_by(is_active = True, component = component_uuid).limit(1000).all()
+    return render_template('read-component.html', component = target_component, component_instances = component_instances, len = len) 
 
 @app.route('/update-component/<component_uuid>', methods=['GET', 'POST'])
 def update_component(component_uuid):
@@ -117,6 +121,9 @@ def read_component_instance(component_instance_uuid):
     target_component_instance = Instance.query.filter_by(uuid = component_instance_uuid).first()
     return render_template('read-component-instance.html', component_instance = target_component_instance) 
 
+"""
+Updating Instances does not make sense. So will not be used
+"""
 @app.route('/update-component-instance/<component_instance_uuid>', methods=['GET', 'POST'])
 def update_component_instance(component_instance_uuid):
     target_component_instance = Instance.query.filter_by(uuid = component_instance_uuid).first()
@@ -159,7 +166,8 @@ def create_client():
 @app.route('/read-client/<client_uuid>')
 def read_client(client_uuid):
     target_client = Client.query.filter_by(uuid = client_uuid).first()
-    return render_template('read-client.html', client = target_client) 
+    component_instances = Instance.query.filter_by(is_active = True, client = client_uuid).limit(1000).all()
+    return render_template('read-client.html', client = target_client, component_instances = component_instances, len = len) 
 
 @app.route('/update-client/<client_uuid>', methods=['GET', 'POST'])
 def update_client(client_uuid):

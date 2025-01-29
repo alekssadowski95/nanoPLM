@@ -3,7 +3,8 @@
 {% block style %}{% endblock style %}
 
 {% block content %}
-<a type="button" class="btn btn-outline-dark mb-3" href="{{ url_for('all_clients') }}">< Alle Kunden</a> 
+<a type="button" class="btn btn-outline-dark mb-3" href="{{ url_for('all_clients') }}">< Alle Kunden</a>
+<p>Kunde</p> 
 <h1 class="mb-3">{{ client.name }}</h1>
 <div class="mb-2">
     <nobr>
@@ -28,4 +29,35 @@
         </tr>
     </tbody>
 </table>   
+<h2 class="pt-3">Instanzen</h2> 
+<p class="mb-2">Es wurden {{ len(component_instances) }} Instanzen gefunden.</p>
+<table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
+    <thead>
+        <tr>
+            <th>Komponente</th>
+            <th>Seriennummer</th>
+            <th>UUID</th>
+            <th>Erstellungsdatum</th>
+            <th>Kunde</th>
+            <th>Aktionen</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for component_instance in component_instances %}
+    <tr>
+        <td>{{ component_instance.component }}</td>
+        <td>{{ component_instance.serial_number }}</td>
+        <td>{{ component_instance.uuid }}</td>
+        <td>{{ component_instance.date_created }}</td>
+        <td>{{ component_instance.client }}</td>
+        <td>
+            <nobr>
+                <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('read_component_instance', component_instance_uuid = component_instance.uuid) }}"><i class="bi-eye"></i></a>
+                <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_component_instance', component_instance_uuid = component_instance.uuid) }}"><i class="bi-x-lg"></i></a>
+            </nobr>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock content %}
