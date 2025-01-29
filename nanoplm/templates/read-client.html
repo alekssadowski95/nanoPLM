@@ -29,6 +29,7 @@
         </tr>
     </tbody>
 </table>   
+
 <h2 class="pt-3">Instanzen</h2> 
 <p class="mb-2">Es wurden {{ len(component_instances) }} Instanzen gefunden.</p>
 <table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
@@ -58,6 +59,35 @@
         </td>
     </tr>
     {% endfor %}
+    </tbody>
+</table>
+
+<h2 class="pt-3">Dateien</h2>
+<p class="mb-2">Es wurden {{ len(files) }} Dateien gefunden.</p>
+<table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>UUID</th>
+            <th>Erstellungsdatum</th>
+            <th>Aktionen</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for file in files %}
+        <tr>
+            <td>{{ file.name }}</td>
+            <td>{{ file.uuid }}</td>
+            <td>{{ file.date_created }}</td>
+            <td>
+                <nobr>
+                    <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('read_file', file_uuid = file.uuid) }}"><i class="bi-eye"></i></a>
+                    <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_file', file_uuid = file.uuid) }}"><i class="bi-pencil"></i></a>
+                    <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_file', file_uuid = file.uuid) }}"><i class="bi-x-lg"></i></a>
+                </nobr>
+            </td>
+        </tr>
+        {% endfor %}
     </tbody>
 </table>
 {% endblock content %}
