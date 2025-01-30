@@ -4,8 +4,10 @@ Open-Source PLM for small machine manufacturers - natively supports FreeCAD.
 - Run locally without an internet connection.
 - Keep all your data private.
 - Focusing on ease of use - even beginners can install and use it.
-- FreeCAD CAD Models get priority treatment - native FreeCAD support
+- Priority treatment of FreeCAD compared to other CAD software, with the aim to further spread the word about it and making more manufacturers transition to FreeCAD.
 - Automate your FreeCAD workflows from a central place.
+- Support for all relevant languages in manufacturing, including English, German, French and others.
+- Unique features that enable small manufacturers to compete against the big players.
 - Compatible with Windows 10
 
 :point_right: Watch nanoPLM Video Overview: 
