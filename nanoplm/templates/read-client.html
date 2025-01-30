@@ -8,7 +8,6 @@
 <h1 class="mb-3">{{ client.name }}</h1>
 <div class="mb-2">
     <nobr>
-        <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('create_component_instance', client_uuid = client.uuid) }}"><i class="bi-plus-lg" style="padding-right: 6px;"></i>Instanz hinzufügen</a>
         <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('update_client', client_uuid = client.uuid) }}"><i class="bi-pencil" style="padding-right: 6px;"></i>Bearbeiten</a>
         <a class="btn btn-outline-danger" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('delete_client', client_uuid = client.uuid) }}"><i class="bi-x-lg" style="padding-right: 6px;"></i>Löschen</a>
     </nobr>
@@ -30,7 +29,12 @@
     </tbody>
 </table>   
 
-<h2 class="pt-3">Instanzen</h2> 
+<h2 class="pt-5">Instanzen</h2> 
+<div class="pt-3 mb-2">
+    <nobr>
+        <a class="btn btn-outline-secondary" style="padding-left: 10px; padding-right: 10px;" href="{{ url_for('create_component_instance', client_uuid = client.uuid) }}"><i class="bi-plus-lg" style="padding-right: 6px;"></i>Instanz hinzufügen</a>
+    </nobr>
+</div>
 <p class="mb-2">Es wurden {{ len(component_instances) }} Instanzen gefunden.</p>
 <table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
     <thead>
@@ -62,7 +66,7 @@
     </tbody>
 </table>
 
-<h2 class="pt-3">Dateien</h2>
+<h2 class="pt-5">Dateien</h2>
 <p class="mb-2">Es wurden {{ len(files) }} Dateien gefunden.</p>
 <table class="table table-striped" style="outline-style: solid; outline-color: lightgray; outline-width: 1px;">
     <thead>
