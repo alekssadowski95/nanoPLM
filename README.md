@@ -96,11 +96,11 @@ Implementing a comprehensive PLM system can introduce additional administrative 
 
 To address these challenges, nanoPLM has been developed as an open-source PLM solution specifically designed for small machine manufacturers. Intended to be used in conjunction with FreeCAD, nanoPLM offers several key advantages:
 
-### Local Deployment
-nanoPLM runs locally without requiring an internet connection, ensuring that all data remains private and under the company's control. Local deployment provides companies with complete control over their product data, eliminating the need for cloud-based storage and reducing concerns about data security breaches. By keeping all information within an internal network, businesses can maintain confidentiality and protect sensitive intellectual property without relying on third-party servers. This is especially beneficial for industries dealing with proprietary designs, such as aerospace, defense, and high-tech manufacturing, where safeguarding product data is critical. IT administrators and security teams benefit the most from this approach, as it allows them to implement strict access controls and compliance measures without external dependencies.
+### Data Privacy through Local Deployment
+By running locally, nanoPLM ensures that all sensitive product data remains within the company's infrastructure, mitigating privacy concerns associated with cloud-based systems. Local deployment provides companies with complete control over their product data, eliminating the need for cloud-based storage and reducing concerns about data security breaches. By keeping all information within an internal network, businesses can maintain confidentiality and protect sensitive intellectual property without relying on third-party servers. This is especially beneficial for industries dealing with proprietary designs, such as aerospace, defense, and high-tech manufacturing, where safeguarding product data is critical. IT administrators and security teams benefit the most from this approach, as it allows them to implement strict access controls and compliance measures without external dependencies.
 
-### User-Friendly Installation
-The focus on ease of use ensures that even users with limited technical expertise can install and operate the system effectively. A user-friendly installation process ensures that even individuals with limited technical expertise can set up and operate the system effectively. Traditional PLM solutions often require extensive IT support for installation and maintenance, which can slow down adoption and increase costs. nanoPLM simplifies this process by providing an intuitive setup, reducing the barriers to entry for small and medium-sized businesses. Engineers and designers, who may not have dedicated IT teams at their disposal, benefit the most from this ease of use, allowing them to focus on product development rather than troubleshooting software complexities.
+### Simplicity
+Designed with a focus on ease of use, nanoPLM minimizes complexity, reducing the learning curve and the need for extensive training. The focus on ease of use ensures that even users with limited technical expertise can install and operate the system effectively. A user-friendly installation process ensures that even individuals with limited technical expertise can set up and operate the system effectively. Traditional PLM solutions often require extensive IT support for installation and maintenance, which can slow down adoption and increase costs. nanoPLM simplifies this process by providing an intuitive setup, reducing the barriers to entry for small and medium-sized businesses. Engineers and designers, who may not have dedicated IT teams at their disposal, benefit the most from this ease of use, allowing them to focus on product development rather than troubleshooting software complexities. 
 
 ### Cost-Effective
 Users of nanoPLM benefit significantly from its free and open-source nature, as it eliminates the high licensing costs associated with traditional PLM solutions. Many commercial PLM systems require substantial upfront investments, ongoing subscription fees, and expensive customization, making them inaccessible for small and medium-sized businesses. With nanoPLM, companies can implement a robust product lifecycle management system without financial barriers, allowing them to allocate resources to innovation and growth instead. Additionally, its open-source model enables users to modify and adapt the software to their specific needs, ensuring flexibility that proprietary solutions often lack. This level of customization and affordability makes nanoPLM an attractive alternative for businesses looking to streamline their product development processes without incurring excessive costs.
@@ -113,22 +113,6 @@ nanoPLM is designed to work seamlessly with FreeCAD, a popular open-source 3D CA
 In the aerospace industry, companies like Eurocopter have leveraged PLM solutions to enhance product reliability under extreme conditions and to develop innovative materials and technologies. By utilizing PLM software, Eurocopter was able to reduce the number of required prototypes and improve documentation for test centers, thereby accelerating approvals.
 
 Similarly, Honeywell Aerospace implemented PLM tools to improve collaboration across its global network, enabling virtual teamwork and streamlined workflows between various locations. This integration facilitated closer cooperation with the supply chain and development partners, enhancing overall efficiency.
-
-## nanoPLM's Approach to Common PLM Challenges
-
-nanoPLM addresses several common issues associated with traditional PLM systems:
-
-### Cost-Effectiveness
-As a free and open-source solution, nanoPLM eliminates licensing fees, making it an affordable option for SMEs.
-
-### Simplicity
-Designed with a focus on ease of use, nanoPLM minimizes complexity, reducing the learning curve and the need for extensive training.
-
-### Data Privacy
-By running locally, nanoPLM ensures that all sensitive product data remains within the company's infrastructure, mitigating privacy concerns associated with cloud-based systems.
-
-### Integration with FreeCAD
-The native support for FreeCAD allows users to manage their CAD data efficiently, automating workflows from a central platform and enhancing productivity.
 
 ## Conclusion
 
