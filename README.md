@@ -27,22 +27,12 @@ Open-Source PLM for small machine manufacturers - natively supports FreeCAD.
 *nanoPLM* follows the following workflow from product development and manufacturing:
 1. Technology research (Patents, scientific publications, existing products, catalogues)
 2. Concept (Quick drawing (hand/powerpoint) with all its components and external effects)
-3. Product safety assessment (Directive 2001/95/EC, risk assessment, ...)
+3. Product safety assessment (Directive 2001/95/EC, risk assessment, declaration of conformity, standards research...)
 4. Preliminary design (analytical calculations)
 5. Detailed design (3D CAD, manufacturing and assembly drawings, simulation)
 6. Testing (if necessary (safety, functional))
 7. Manufacturing (in-house/ outsourced, development and manufacturing of manufacturing aids)
 8. Quality assurance (100% control/ sample)
-
-
-## Manage your product data in a small team
-- Material id, image, name, description
-- 3D CAD, drawings
-- Patent documents (IP)
-- Product brochures
-- Machinery directive, CE marking, risk assessment, instructions manual, declaration of conformity
-- Price buying, price selling
-- ...
 
 ## Get nanoPLM
 
