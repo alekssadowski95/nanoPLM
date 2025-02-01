@@ -20,9 +20,9 @@ Open-Source PLM for small machine manufacturers - natively supports FreeCAD.
 
 ## Product Development and Manufacturing Cycle in the European Union
 
-:point_right: Artikel zu diesem Workflow (konstruktionspraxis, Deutsch): [https://www.konstruktionspraxis.vogel.de/wie-der-produktentstehungsprozess-mit-open-source-software-gelingt-a-2489d8720da4cc79f845bd795fcf81c4/](https://www.konstruktionspraxis.vogel.de/wie-der-produktentstehungsprozess-mit-open-source-software-gelingt-a-2489d8720da4cc79f845bd795fcf81c4/)
+:point_right: Artikel zu diesem Workflow (konstruktionspraxis, Deutsch): [Wie der Produktentstehungsprozess mit Open-Source-Software gelingt](https://www.konstruktionspraxis.vogel.de/wie-der-produktentstehungsprozess-mit-open-source-software-gelingt-a-2489d8720da4cc79f845bd795fcf81c4/)
 
-:point_right:Article about this workflow (GrabCAD, english): [https://grabcad.com/tutorials/succeeding-with-open-source-software-in-product-development](https://grabcad.com/tutorials/succeeding-with-open-source-software-in-product-development)
+:point_right:Article about this workflow (GrabCAD, english): [Succeeding with open-source-software in product development](https://grabcad.com/tutorials/succeeding-with-open-source-software-in-product-development)
 
 *nanoPLM* follows the following workflow from product development and manufacturing:
 1. Technology research (Patents, scientific publications, existing products, catalogues)
