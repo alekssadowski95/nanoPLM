@@ -13,6 +13,8 @@ nanoPLM is an Open-Source PLM for small machine manufacturers - natively support
 :point_right: Watch nanoPLM Video Overview: 
 [https://youtu.be/8V5PVpD8dvw](https://youtu.be/8V5PVpD8dvw)
 
+nanoPLM also got announced at FOSDEM 2025 in my talk about "Product development in mechanical engineering using open-source software".
+
 
 ![nanoplm-item-engineeringtool-integration.jpg](nanoplm-item-engineeringtool-integration.jpg)
 
