@@ -1,4 +1,4 @@
-# nanoPLM
+# nanoPLM - Open-Source PLM
 Open-Source PLM for small machine manufacturers - natively supports FreeCAD.
 
 - Run locally without an internet connection.
