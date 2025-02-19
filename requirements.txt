@@ -1,8 +1,8 @@
 gunicorn
-flask
-flask_sqlalchemy
-flask_wtf
-wtforms
+Flask
+Flask-SQLAlchemy
+Flask-WTF
+WTForms
 SQLAlchemy
 pyinstaller
 waitress
