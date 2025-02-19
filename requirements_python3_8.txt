@@ -1,0 +1,11 @@
+gunicorn
+flask
+flask_sqlalchemy
+flask_wtf
+wtforms
+SQLAlchemy
+pyinstaller
+waitress
+PySide2
+pywebview
+typing_extensions==4.7.1

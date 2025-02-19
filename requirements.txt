@@ -7,3 +7,4 @@ SQLAlchemy
 pyinstaller
 waitress
 PySide2
+pywebview
