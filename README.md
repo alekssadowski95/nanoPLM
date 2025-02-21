@@ -26,7 +26,7 @@ Demo nanoPLM now:
 [https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
 
 Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
-[https://github.com/alekssadowski95/nanoPLM/releases/latest/download/](https://github.com/alekssadowski95/nanoPLM/releases/latest/download/)
+[https://github.com/alekssadowski95/nanoPLM/releases/latest/](https://github.com/alekssadowski95/nanoPLM/releases/latest/)
 
 ## Product Development and Manufacturing Cycle in the European Union
 
