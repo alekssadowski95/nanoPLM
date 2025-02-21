@@ -1,11 +1,13 @@
 from nanoplm import app
+from flask import url_for
 
 import webview
 
 
 if __name__ == '__main__':
+
     window = webview.create_window('nanoPLM', app)
-    
+
     try:
         import pyi_splash
 
@@ -20,4 +22,4 @@ if __name__ == '__main__':
     except:
         pass
 
-    webview.start()
+    webview.start(icon='C:/Users/Aleksander/Documents/GitHub/nanoPLM/nanoplm/static/nanoplm-logo.png')
