@@ -20,7 +20,13 @@ nanoPLM also got announced at FOSDEM 2025 in my talk about "Product development 
 
 ![nanoplm/doc/nanoplm-item-engineeringtool-integration.jpg](nanoplm/doc/nanoplm-item-engineeringtool-integration.jpg)
 
+## Get nanoPLM
 
+Demo nanoPLM now:
+[https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
+
+Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
+[https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip](https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip)
 
 ## Product Development and Manufacturing Cycle in the European Union
 
@@ -37,15 +43,6 @@ Article about this workflow (GrabCAD, english): [Succeeding with open-source-sof
 6. Testing (if necessary (safety, functional))
 7. Manufacturing (in-house/ outsourced, development and manufacturing of manufacturing aids)
 8. Quality assurance (100% control/ sample)
-
-## Get nanoPLM
-
-Demo nanoPLM now:
-[https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
-
-Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
-[https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip](https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip)
-
 
 ## Contact
 ALSADO Inh. Aleksander Sadowski<br>
