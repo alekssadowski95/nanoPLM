@@ -1,4 +1,6 @@
 # nanoPLM - Open-Source PLM
+
+## What is nanoPLM?
 nanoPLM is an Open-Source PLM for small machine manufacturers - natively supports FreeCAD 
 
 - Run locally without an internet connection.
@@ -10,7 +12,7 @@ nanoPLM is an Open-Source PLM for small machine manufacturers - natively support
 - Unique features that enable small manufacturers to compete against the big players.
 - Compatible with Windows 10
 
-:point_right: Watch nanoPLM Video Overview: 
+Watch nanoPLM Video Overview: 
 [https://youtu.be/8V5PVpD8dvw](https://youtu.be/8V5PVpD8dvw)
 
 nanoPLM also got announced at FOSDEM 2025 in my talk about "Product development in mechanical engineering using open-source software".
@@ -22,9 +24,9 @@ nanoPLM also got announced at FOSDEM 2025 in my talk about "Product development 
 
 ## Product Development and Manufacturing Cycle in the European Union
 
-:point_right: Artikel zu diesem Workflow (konstruktionspraxis, Deutsch): [Wie der Produktentstehungsprozess mit Open-Source-Software gelingt](https://www.konstruktionspraxis.vogel.de/wie-der-produktentstehungsprozess-mit-open-source-software-gelingt-a-2489d8720da4cc79f845bd795fcf81c4/)
+Artikel zu diesem Workflow (konstruktionspraxis, Deutsch): [Wie der Produktentstehungsprozess mit Open-Source-Software gelingt](https://www.konstruktionspraxis.vogel.de/wie-der-produktentstehungsprozess-mit-open-source-software-gelingt-a-2489d8720da4cc79f845bd795fcf81c4/)
 
-:point_right:Article about this workflow (GrabCAD, english): [Succeeding with open-source-software in product development](https://grabcad.com/tutorials/succeeding-with-open-source-software-in-product-development)
+Article about this workflow (GrabCAD, english): [Succeeding with open-source-software in product development](https://grabcad.com/tutorials/succeeding-with-open-source-software-in-product-development)
 
 *nanoPLM* follows the following workflow from product development and manufacturing:
 1. Technology research (Patents, scientific publications, existing products, catalogues)
@@ -38,10 +40,10 @@ nanoPLM also got announced at FOSDEM 2025 in my talk about "Product development 
 
 ## Get nanoPLM
 
-:point_right: Demo nanoPLM now:
+Demo nanoPLM now:
 [https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
 
-:point_right: Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
+Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
 [https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip](https://github.com/alekssadowski95/nanoPLM/releases/latest/download/openplm.zip)
 
 
