@@ -25,7 +25,7 @@ nanoPLM also got announced at FOSDEM 2025 in my talk about "Product development 
 Demo nanoPLM now:
 [https://aleksanders.pythonanywhere.com](https://aleksanders.pythonanywhere.com)
 
-Download nanoPLM (exe, Windows 10, FreeCAD 0.21): 
+Download nanoPLM (exe, Windows 10): 
 [https://github.com/alekssadowski95/nanoPLM/releases/latest/](https://github.com/alekssadowski95/nanoPLM/releases/latest/)
 
 ## Product Development and Manufacturing Cycle in the European Union
