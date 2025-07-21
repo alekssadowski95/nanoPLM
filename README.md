@@ -1,8 +1,8 @@
 # nanoPLM - Open-Source PLM
+nanoPLM is an Open-Source PLM for small machine manufacturers - natively supports FreeCAD 
+![nanoplm/doc/nanoplm-item-engineeringtool-integration.jpg](nanoplm/doc/nanoplm-item-engineeringtool-integration.jpg)
 
 ## What is nanoPLM?
-nanoPLM is an Open-Source PLM for small machine manufacturers - natively supports FreeCAD 
-
 - Run locally without an internet connection.
 - Keep all your data private.
 - Focusing on ease of use - even beginners can install and use it.
@@ -18,7 +18,6 @@ Watch nanoPLM Video Overview:
 nanoPLM also got announced at FOSDEM 2025 in my talk about "Product development in mechanical engineering using open-source software".
 
 
-![nanoplm/doc/nanoplm-item-engineeringtool-integration.jpg](nanoplm/doc/nanoplm-item-engineeringtool-integration.jpg)
 
 ## Get nanoPLM
 
